@@ -10,7 +10,7 @@ console.log(
 lookup = {
     linkedin: 'https://linkedin.com/in/peterchristianfraedrich',
     medium: 'https://medium.com/@peterfraedrich',
-    github: 'https://github.com/github',
+    github: 'https://github.com/peterfraedrich',
     twitter: 'https://twitter.com/peter_fraedrich'
 }
 
@@ -29,7 +29,13 @@ var windowMax = function () {
 }
 
 var windowClose = function () {
+    e = document.getElementById('main')
+    e.classList.add('d-none')
+}
 
+var windowOpen = function () {
+    e = document.getElementById('main')
+    e.classList.remove('d-none')
 }
 
 var navigate = function (elem, dest) {
