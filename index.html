@@ -1,40 +1,113 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
     <title>Peter Fraedrich</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <script src="script.js"></script>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
 </head>
 
 <body>
-    <div id="wrapper">
-        <div id="content">
-            <div id="top">
-                <span id="title">Peter Christian Fraedrich</span>
-            </br>
-                <span id="tag">developer | entrepreneur | writer | musician | husband | dad </span>
-            </div>
-            <div id="text">
-                <a href="https://medium.com/@peterfraedrich" target="_blank" title="medium"><ion-icon name="logo-medium" class="icon"></ion-icon></a>
-                <a href="https://github.com/peterfraedrich" target="_blank" title="github"><ion-icon name="logo-github" class="icon"></ion-icon></a>
-                <a href="https://twitter.com/peter_fraedrich" target="_blank" title="twitter"><ion-icon name="logo-twitter" class="icon"></ion-icon></a>
-                <a href="https://linkedin.com/in/peterchristianfraedrich" target="_blank" title="linkedin"><ion-icon name="logo-linkedin" class="icon"></ion-icon></a>
-                <a href="https://facebook.com/peterfraedrich" target="_blank" title="facebook"><ion-icon name="logo-facebook" class="icon"></ion-icon></a>
-                <a href="https://instagram.com/peter_fraedrich" target="_blank" title="instagram"><ion-icon name="logo-instagram" class="icon"></ion-icon></a>
+    <div class="bg">
+        <div class="container d-none" id="main">
+            <div class="d-flex flex-row">
+                <div class="flex-fill">
+                    <div class="container wrapper p-0">
+                        <div class="d-flex flex-row justify-content-end align-items-center top-bar pe-1">
+                            <div class="flex-fill d-flex">
+                                <div class="window-icon ms-2 align-items-center d-flex title"><img class="title-ico" src="img/me_square_bw.png"></div>
+                                <div class="window-title p-2 title align-items-center d-flex">Peter Christian Fraedrich <span class="subtitle">| peterfraedrich.com</span></div>
+                            </div>
+                            <div class="flex">
+                                <button class="window-button wb-minimize text-center" onClick="windowMin()"><ion-icon name="chevron-down-outline"></ion-icon></button>
+                            </div>
+                            <div class="flex">
+                                <button class="window-button wb-maximize text-center" onClick="windowMax()"><ion-icon name="albums-outline"></ion-icon></button>
+                            </div>
+                            <div class="flex">
+                                <button class="window-button wb-close text-center" onclick="windowClose()"><ion-icon name="close-outline"></ion-icon></button>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row not-title">
+                            <div class="d-flex p-2 align-items-center">
+                                <div class="nav-btn text-center"><ion-icon name="arrow-back-sharp"></ion-icon></div>
+                                <div class="nav-btn text-center"><ion-icon name="home-sharp"></ion-icon></div>
+                                <div class="nav-btn text-center"><ion-icon name="arrow-forward-sharp"></ion-icon></div>
+                            </div>
+                            <div class="flex-fill p-1 m-2 url-bar align-items-center d-flex">
+                                <div class="lock ms-2"><ion-icon name="lock-closed-sharp"></ion-icon></div>
+                                <div class="flex-fill ms-2">https://peterfraedrich.com</div>
+                            </div>
+                            <div class="d-flex align-items-center me-2">
+                                <img src="img/netscape.gif" class="browser-ico">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row bookmarks-bar not-title">
+                            <div class="d-flex p-2 align-items-center  flex-fill">
+                                <button class="flex bookmark-btn text-center me-2"><span class="bkmk-ico"><ion-icon name="document-text-sharp"></ion-icon></span> About </button>
+                                <button class="flex bookmark-btn text-center me-2" onclick="navigate(this, 'linkedin')"><span class="bkmk-ico"><ion-icon name="logo-linkedin"></ion-icon></span> LinkedIn <span class="ext-ico"><ion-icon name="open-outline"></ion-icon></span></button>
+                                <button class="flex bookmark-btn text-center me-2" onclick="navigate(this, 'medium')"><span class="bkmk-ico"><ion-icon name="logo-medium"></ion-icon></span> Medium Blog <span class="ext-ico"><ion-icon name="open-outline"></ion-icon></span></button>
+                                <button class="flex bookmark-btn text-center me-2" onclick="navigate(this, 'github')"><span class="bkmk-ico"><ion-icon name="logo-octocat"></ion-icon></span> GitHub <span class="ext-ico"><ion-icon name="open-outline"></ion-icon></span></button>
+                                <button class="flex bookmark-btn text-center me-2" onclick="navigate(this, 'twitter')"><span class="bkmk-ico"><ion-icon name="logo-twitter"></ion-icon></span> Twitter <span class="ext-ico"><ion-icon name="open-outline"></ion-icon></span></button>
+                            </div>
+                            <div class="d-flex justify-content-end align-items-center p-2">
+                                <a href="mailto:peterfraedrich+website@gmail.com" target="_blank">
+                                    <div class="flex bookmark-btn text-center me-2"><span class="bkmk-ico"><ion-icon name="mail-sharp"></ion-icon></span> E-Mail Me!</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row not-title">
+                            <div class="content-wrapper d-flex flex-fill">
+                                <iframe name="content" src="html/about.html" class="content-frame"></iframe>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row status-bar not-title">
+                            <div class="d-flex mb-2 ms-2">
+                                <div class="progress ">
+                                    <div class="track">
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-fill"></div>
+                            <div class="d-flex align-items-center me-2">
+                                <span class="smalltext"><ion-icon name="arrow-up-sharp"></ion-icon>13kbps <ion-icon name="arrow-down-sharp"></ion-icon>22kbps</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+        <div id="icon" onClick="windowOpen()">
+            <img src="img/netscape-icon.png" id="icon-image">
+            <div id="shortcut-bg"></div>
+            <div id="shortcut"><ion-icon name="arrow-redo-sharp"></ion-icon></div>
+            <div id="name">Netscape<br>Navigator</div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+        <script src="script.js"></script>
 </body>
 
-<!--
-
-why are you reading this?
-don't you have something better to do?
-no?
-wow, that's kinda sad.
-or maybe you're just an ultra-nerd like me.
-¯\_(ツ)_/¯
-
--->
+</html>

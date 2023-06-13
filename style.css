@@ -1,63 +1,319 @@
-
-
 body {
     border: 0px;
     margin: 0px;
     padding: 0px;
-    color: #FFF;
-    font-family: Arial, Helvetica, sans-serif;
+    color: #008081;
 }
 
-#wrapper {
-    height: 100vh;
-    width: 100vw;
-    background-image: url('bg.jpg');
-    background-size: cover;
+a,
+a:hover,
+a:active,
+a:visited {
+    border: none !important;
+    border-style: none !important;
+    color: black !important;
+    text-decoration: None !important;
+}
+
+
+.bg {
+    width: 100%;
+    height: 100%;
+    background-color: #008081;
+    background-image: url("img/xp.jpg");
+    position: absolute;
     background-position-x: center;
     background-position-y: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+#icon {
     position: absolute;
+    width: 50px;
+    height: 50px;
+    margin-left: 50%;
+    left: -25px;
+    z-index: 1;
+    margin-top: 40vh;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    padding: 5px;
 }
 
-#content {
-    background-color: rgba(0,0,0,0.8);
-    width: 75vw;
-    height: auto;
-    margin: auto;
-    margin-top: 30vh;
-    padding: 30px;
+#icon-image {
+    width: 50px;
+    height: 50px;
+    z-index: 2;
 }
 
-#top {
-    text-align: center;
+#shortcut {
+    position: absolute;
+    z-index: 11;
+    margin-top: -18px;
+    width: 16px;
+    height: 16px;
 }
 
-#title {
-    text-align: center;
-    line-height: 50px;
-    font-size: 3em;
-    font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+#shortcut-bg {
+    position: absolute;
+    margin-top: -16px;
+    width: 16px;
+    height: 16px;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 10;
+    border-radius: 1;
 }
 
-#tag {
+#name {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 0.8em;
-    letter-spacing: 0.5vw;
-    color: #AAA;
-    line-height: 30px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
-.icon {
+.cardx {
+    border: none !important;
+    border-radius: 20px !important;
+}
+
+#main {
+    margin: auto;
+    margin-top: 5vh;
+    height: 80vh;
+    width: 80vw;
+}
+
+.not-title {}
+
+.hidden {
+    display: none !important;
+}
+
+.transparent {}
+
+.wrapper {
+    background-color: #FFF;
+    border: 5px solid #AAA;
+    border-style: outset;
+    min-width: 800px;
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+.top-bar {
+    background-image: linear-gradient(to right, rgba(0, 0, 255, 1), white);
+    border-bottom: 3px solid #aaa;
+}
+
+.browser-ico {
+    height: 2em;
+    vertical-align: middle;
+}
+
+.smalltext {
+    font-family: monospace;
+    font-size: .7em;
+    text-align: middle;
+}
+
+.title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
     color: #FFF;
-    font-size: 1.5em;
-    transition: all 1s ease;
-    margin-right: 20px;
-    margin-left: 20px
+    vertical-align: middle;
 }
 
-.icon:hover {
-    color: #23fcf5;
+.title-ico {
+    height: 2em;
+    vertical-align: middle;
 }
 
-#text {
-    margin-top: 50px;
-    text-align: center;
+.subtitle {
+    color: #aaa;
+    font-weight: 100;
+    margin-left: 5px
+}
+
+.window-button {
+    width: 2em;
+    height: 2em;
+    background-color: #eee;
+    border-color: #eee;
+    padding-top: .1em;
+    border: 3px solid #fff;
+    border-style: outset !important;
+    transition: background-color .5s ease, border-color .5s ease;
+    cursor: pointer;
+}
+
+.wb-close:hover {
+    border: 3px solid;
+    background-color: red;
+    border-color: red;
+}
+
+.wb-minimize:hover {
+    border: 3px solid;
+    background-color: #DDD;
+    border-color: #ddd;
+}
+
+.wb-maximize:hover {
+    border: 3px solid;
+    background-color: #DDD;
+    border-color: #ddd
+}
+
+.window-button:active {
+    border-style: inset !important;
+}
+
+.url-bar {
+    cursor: text;
+    border: 2px solid;
+    border-style: inset;
+    background-color: #EEE;
+}
+
+.lock {
+    vertical-align: middle;
+    color: green
+}
+
+.nav-btn {
+    aspect-ratio: 1;
+    width: 2em;
+    border-style: outset;
+    margin: 2px;
+    padding-top: .2em;
+    border-color: #eee;
+    background-color: #eee;
+    transition: background-color .5s ease, border-color .5s ease;
+}
+
+.nav-btn:hover {
+    background-color: #ddd;
+    border-color: #ddd;
+}
+
+.nav-btn:active {
+    border-style: inset;
+}
+
+.bookmarks-bar {
+    border-bottom: 3px solid lightgrey;
+    border-top: 3px solid lightgray;
+    background-color: #ddd;
+}
+
+.bookmark-btn {
+    border-style: outset !important;
+    border: none;
+    padding-inline: 4px;
+    text-decoration: none !important;
+}
+
+.bookmark-btn:active {
+    border-style: inset !important;
+}
+
+.bookmark-btn:visited {
+    border-style: outset !important;
+}
+
+
+.bookmark-btn .bkmk-ico {
+    vertical-align: middle;
+    color: #555
+}
+
+.ext-ico {
+    vertical-align: middle;
+    color: #666;
+}
+
+.content-wrapper {
+    width: 100%;
+    height: 60vh;
+}
+
+.content-frame {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+.status-bar {
+    background-color: #ddd;
+    border-top: 3px solid #aaa;
+}
+
+
+/* PROGRESS BAR */
+div.track,
+div.bar {
+    position: relative;
+}
+
+div.progress {
+    width: 200px;
+    height: 21px;
+    border: solid 3px;
+    border-style: inset;
+    background-color: #FFF;
+    vertical-align: middle;
+    margin-top: .4em;
+}
+
+div.track {
+    width: 100%;
+    height: 21px;
+    overflow: hidden;
+    -webkit-animation: prgBar 15s linear 0s infinite;
+    animation: prgBar 15s linear 0s infinite;
+}
+
+div.bar {
+    height: 15px;
+    width: 10px;
+    background-color: blue;
+    margin-right: 2px;
+    float: left;
+    clear: top;
+}
+
+@-webkit-keyframes prgBar {
+    0% {
+        width: 0%
+    }
+
+    9.99% {
+        width: 0%
+    }
+
+    10% {
+        width: 10%
+    }
+
+    95% {
+        width: 100%
+    }
+}
+
+@keyframes prgBar {
+    0% {
+        width: 0%
+    }
+
+    9.99% {
+        width: 0%
+    }
+
+    10% {
+        width: 10%
+    }
+
+    95% {
+        width: 100%
+    }
 }
