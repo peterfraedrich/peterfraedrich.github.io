@@ -1,63 +1,226 @@
-
-
 body {
     border: 0px;
     margin: 0px;
     padding: 0px;
     color: #FFF;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
-#wrapper {
-    height: 100vh;
+a,
+a:hover,
+a:active,
+a:visited {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+
+.bg {
     width: 100vw;
-    background-image: url('bg.jpg');
-    background-size: cover;
+    height: 100vh;
+    background-color: #e0e0e0;
+    position: absolute;
     background-position-x: center;
     background-position-y: center;
-    position: absolute;
 }
 
-#content {
-    background-color: rgba(0,0,0,0.8);
-    width: 75vw;
-    height: auto;
+.cardx {
+    border: none !important;
+    border-radius: 20px !important;
+}
+
+#main {
     margin: auto;
-    margin-top: 30vh;
-    padding: 30px;
+    margin-top: 10%;
+    height: 80vh;
+    width: 80vw;
 }
 
-#top {
-    text-align: center;
+.transparent {}
+
+.wrapper {
+    background-color: #FFF;
+    border: 5px solid #AAA;
+    border-style: outset;
 }
 
-#title {
-    text-align: center;
-    line-height: 50px;
-    font-size: 3em;
-    font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+.top-bar {
+    background-image: linear-gradient(to right, rgba(0, 0, 255, 1), white);
+    border-bottom: 3px solid #aaa;
 }
 
-#tag {
-    font-size: 0.8em;
-    letter-spacing: 0.5vw;
-    color: #AAA;
-    line-height: 30px;
-}
-
-.icon {
+.title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
     color: #FFF;
-    font-size: 1.5em;
-    transition: all 1s ease;
-    margin-right: 20px;
-    margin-left: 20px
 }
 
-.icon:hover {
-    color: #23fcf5;
+.subtitle {
+    color: #aaa;
+    font-weight: 100;
 }
 
-#text {
-    margin-top: 50px;
-    text-align: center;
+.window-button {
+    width: 3em;
+    height: 3em;
+    background-color: #eee;
+    border-color: #eee;
+    padding-top: .7em;
+    border-style: outset;
+    transition: background-color .5s ease, border-color .5s ease;
+    cursor: pointer;
+}
+
+.wb-close:hover {
+    background-color: red;
+    border-color: red;
+}
+
+.wb-minimize:hover {
+    background-color: #DDD;
+    border-color: #ddd;
+}
+
+.wb-maximize:hover {
+    background-color: #DDD;
+    border-color: #ddd
+}
+
+.window-button:active {
+    border-style: inset;
+}
+
+.url-bar {
+    cursor: text;
+    border: 2px solid;
+    border-style: inset;
+    background-color: #EEE;
+}
+
+.lock {
+    vertical-align: middle;
+    color: green
+}
+
+.nav-btn {
+    aspect-ratio: 1;
+    width: 2em;
+    border-style: outset;
+    margin: 2px;
+    padding-top: .2em;
+    border-color: #eee;
+    background-color: #eee;
+    transition: background-color .5s ease, border-color .5s ease;
+}
+
+.nav-btn:hover {
+    background-color: #ddd;
+    border-color: #ddd;
+}
+
+.nav-btn:active {
+    border-style: inset;
+}
+
+.bookmarks-bar {
+    border-bottom: 3px solid lightgrey;
+    border-top: 3px solid lightgray;
+    background-color: #ddd;
+}
+
+.bookmark-btn {
+    border-style: outset !important;
+    border: none;
+    padding-inline: 2px;
+    text-decoration: none !important;
+}
+
+.bookmark-btn:active {
+    border-style: inset !important;
+}
+
+.bkmk-ico {
+    vertical-align: middle;
+    color: #555
+}
+
+.content-wrapper {
+    width: 100%;
+    height: 60vh;
+}
+
+.content-frame {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+
+/* PROGRESS BAR */
+div.track,
+div.bar {
+    position: relative;
+}
+
+div.progress {
+    width: 200px;
+    height: 21px;
+    border: solid 3px;
+    border-style: inset;
+    background-color: #FFF;
+    vertical-align: middle;
+    margin-top: .4em;
+}
+
+div.track {
+    width: 100%;
+    height: 21px;
+    overflow: hidden;
+    -webkit-animation: prgBar 15s linear 0s infinite;
+    animation: prgBar 15s linear 0s infinite;
+}
+
+div.bar {
+    height: 15px;
+    width: 10px;
+    background-color: blue;
+    margin-right: 2px;
+    float: left;
+    clear: top;
+}
+
+@-webkit-keyframes prgBar {
+    0% {
+        width: 0%
+    }
+
+    9.99% {
+        width: 0%
+    }
+
+    10% {
+        width: 10%
+    }
+
+    95% {
+        width: 100%
+    }
+}
+
+@keyframes prgBar {
+    0% {
+        width: 0%
+    }
+
+    9.99% {
+        width: 0%
+    }
+
+    10% {
+        width: 10%
+    }
+
+    95% {
+        width: 100%
+    }
 }
