@@ -16,22 +16,22 @@
             <div class="d-flex flex-row">
                 <div class="flex-fill">
                     <div class="container wrapper p-0">
-                        <div class="d-flex flex-row justify-content-end align-items-center top-bar">
+                        <div class="d-flex flex-row justify-content-end align-items-center top-bar pe-1">
                             <div class="flex-fill d-flex">
-                                <div class="window-icon p-2 align-items-center d-flex title"><ion-icon name="people-sharp"></ion-icon></div>
-                                <div class="window-title p-2 title">Peter Christian Fraedrich <span class="subtitle">| peterfraedrich.com</span></div>
+                                <div class="window-icon ms-2 align-items-center d-flex title"><img class="title-ico" src="img/me_square_bw.png"></div>
+                                <div class="window-title p-2 title align-items-center d-flex">Peter Christian Fraedrich <span class="subtitle">| peterfraedrich.com</span></div>
                             </div>
                             <div class="flex">
-                                <div class="window-button wb-minimize text-center"><ion-icon name="chevron-down-outline"></ion-icon></div>
+                                <button class="window-button wb-minimize text-center" onClick="windowMin()"><ion-icon name="chevron-down-outline"></ion-icon></button>
                             </div>
                             <div class="flex">
-                                <div class="window-button wb-maximize text-center"><ion-icon name="albums-outline"></ion-icon></div>
+                                <button class="window-button wb-maximize text-center" onClick="windowMax()"><ion-icon name="albums-outline"></ion-icon></button>
                             </div>
                             <div class="flex">
-                                <div class="window-button wb-close text-center"><ion-icon name="close-outline"></ion-icon></div>
+                                <button class="window-button wb-close text-center"><ion-icon name="close-outline"></ion-icon></button>
                             </div>
                         </div>
-                        <div class="d-flex flex-row">
+                        <div class="d-flex flex-row not-title">
                             <div class="d-flex p-2 align-items-center">
                                 <div class="nav-btn text-center"><ion-icon name="arrow-back-sharp"></ion-icon></div>
                                 <div class="nav-btn text-center"><ion-icon name="home-sharp"></ion-icon></div>
@@ -40,55 +40,59 @@
                             <div class="flex-fill p-1 m-2 url-bar align-items-center d-flex">
                                 <div class="lock ms-2"><ion-icon name="lock-closed-sharp"></ion-icon></div>
                                 <div class="flex-fill ms-2">https://peterfraedrich.com</div>
-                                <div class="flex me-2">
-                                    <div class="progress">
-                                        <div class="track">
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                            <div class="bar"></div>
-                                        </div>
+                            </div>
+                            <div class="d-flex align-items-center me-2">
+                                <img src="img/netscape.gif" class="browser-ico">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row bookmarks-bar not-title">
+                            <div class="d-flex p-2 align-items-center  flex-fill">
+                                <button class="flex bookmark-btn text-center me-2"><span class="bkmk-ico"><ion-icon name="document-text-sharp"></ion-icon></span> About </button>
+                                <button class="flex bookmark-btn text-center me-2" onclick="navigate(this, 'linkedin')"><span class="bkmk-ico"><ion-icon name="logo-linkedin"></ion-icon></span> LinkedIn <span class="ext-ico"><ion-icon name="open-outline"></ion-icon></span></button>
+                                <button class="flex bookmark-btn text-center me-2" onclick="navigate(this, 'medium')"><span class="bkmk-ico"><ion-icon name="logo-medium"></ion-icon></span> Medium Blog <span class="ext-ico"><ion-icon name="open-outline"></ion-icon></span></button>
+                                <button class="flex bookmark-btn text-center me-2" onclick="navigate(this, 'github')"><span class="bkmk-ico"><ion-icon name="logo-octocat"></ion-icon></span> GitHub <span class="ext-ico"><ion-icon name="open-outline"></ion-icon></span></button>
+                                <button class="flex bookmark-btn text-center me-2" onclick="navigate(this, 'twitter')"><span class="bkmk-ico"><ion-icon name="logo-twitter"></ion-icon></span> Twitter <span class="ext-ico"><ion-icon name="open-outline"></ion-icon></span></button>
+                            </div>
+                            <div class="d-flex justify-content-end align-items-center p-2">
+                                <a href="mailto:peterfraedrich+website@gmail.com" target="_blank">
+                                    <div class="flex bookmark-btn text-center me-2"><span class="bkmk-ico"><ion-icon name="mail-sharp"></ion-icon></span> E-Mail Me!</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row not-title">
+                            <div class="content-wrapper d-flex flex-fill">
+                                <iframe name="content" src="html/about.html" class="content-frame"></iframe>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row status-bar not-title">
+                            <div class="d-flex mb-2 ms-2">
+                                <div class="progress ">
+                                    <div class="track">
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
+                                        <div class="bar"></div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="d-flex flex-row bookmarks-bar">
-                            <div class="d-flex p-2 align-items-center  flex-fill">
-                                <a href="html/about.html" target="content">
-                                    <div class="flex bookmark-btn text-center me-2"><span class="bkmk-ico"><ion-icon name="document-text-sharp"></ion-icon></span> About</div>
-                                </a>
-                                <a href="html/linkedin.html" target="content">
-                                    <div class="flex bookmark-btn text-center me-2"><span class="bkmk-ico"><ion-icon name="logo-linkedin"></ion-icon></span> LinkedIn</div>
-                                </a>
-                                <a href="html/medium.html" target="content">
-                                    <div class="flex bookmark-btn text-center me-2"><span class="bkmk-ico"><ion-icon name="logo-medium"></ion-icon></span> Medium Blog</div>
-                                </a>
-                                <a href="html/github.html" target="content">
-                                    <div class="flex bookmark-btn text-center me-2"><span class="bkmk-ico"><ion-icon name="logo-octocat"></ion-icon></span> GitHub</div>
-                                </a>
-                                <a href="html/twitter.html" target="content">
-                                    <div class="flex bookmark-btn text-center me-2"><span class="bkmk-ico"><ion-icon name="logo-twitter"></ion-icon></span> Twitter</div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-row">
-                            <div class="content-wrapper d-flex flex-fill">
-                                <iframe name="content" src="html/about.html" class="content-frame"></iframe>
+                            <div class="d-flex flex-fill"></div>
+                            <div class="d-flex align-items-center me-2">
+                                <span class="smalltext"><ion-icon name="arrow-up-sharp"></ion-icon>13kbps <ion-icon name="arrow-down-sharp"></ion-icon>22kbps</span>
                             </div>
                         </div>
                     </div>

@@ -2,25 +2,29 @@ body {
     border: 0px;
     margin: 0px;
     padding: 0px;
-    color: #FFF;
+    color: #008081;
 }
 
 a,
 a:hover,
 a:active,
 a:visited {
-    text-decoration: none !important;
-    color: inherit !important;
+    border: none !important;
+    border-style: none !important;
+    color: black !important;
+    text-decoration: None !important;
 }
 
 
 .bg {
-    width: 100vw;
-    height: 100vh;
-    background-color: #e0e0e0;
+    width: 100%;
+    height: 100%;
+    background-color: #008081;
+    background-image: url("img/xp.jpg");
     position: absolute;
     background-position-x: center;
     background-position-y: center;
+    background-size: cover;
 }
 
 .cardx {
@@ -30,9 +34,16 @@ a:visited {
 
 #main {
     margin: auto;
-    margin-top: 10%;
+    margin-top: 5vh;
     height: 80vh;
     width: 80vw;
+
+}
+
+.not-title {}
+
+.hidden {
+    display: none !important;
 }
 
 .transparent {}
@@ -41,6 +52,8 @@ a:visited {
     background-color: #FFF;
     border: 5px solid #AAA;
     border-style: outset;
+    min-width: 800px;
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.4);
 }
 
 .top-bar {
@@ -48,46 +61,68 @@ a:visited {
     border-bottom: 3px solid #aaa;
 }
 
+.browser-ico {
+    height: 2em;
+    vertical-align: middle;
+}
+
+.smalltext {
+    font-family: monospace;
+    font-size: .7em;
+    text-align: middle;
+}
+
 .title {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 1em;
     color: #FFF;
+    vertical-align: middle;
+}
+
+.title-ico {
+    height: 2em;
+    vertical-align: middle;
 }
 
 .subtitle {
     color: #aaa;
     font-weight: 100;
+    margin-left: 5px
 }
 
 .window-button {
-    width: 3em;
-    height: 3em;
+    width: 2em;
+    height: 2em;
     background-color: #eee;
     border-color: #eee;
-    padding-top: .7em;
-    border-style: outset;
+    padding-top: .1em;
+    border: 3px solid #fff;
+    border-style: outset !important;
     transition: background-color .5s ease, border-color .5s ease;
     cursor: pointer;
 }
 
 .wb-close:hover {
+    border: 3px solid;
     background-color: red;
     border-color: red;
 }
 
 .wb-minimize:hover {
+    border: 3px solid;
     background-color: #DDD;
     border-color: #ddd;
 }
 
 .wb-maximize:hover {
+    border: 3px solid;
     background-color: #DDD;
     border-color: #ddd
 }
 
 .window-button:active {
-    border-style: inset;
+    border-style: inset !important;
 }
 
 .url-bar {
@@ -131,7 +166,7 @@ a:visited {
 .bookmark-btn {
     border-style: outset !important;
     border: none;
-    padding-inline: 2px;
+    padding-inline: 4px;
     text-decoration: none !important;
 }
 
@@ -139,9 +174,19 @@ a:visited {
     border-style: inset !important;
 }
 
-.bkmk-ico {
+.bookmark-btn:visited {
+    border-style: outset !important;
+}
+
+
+.bookmark-btn .bkmk-ico {
     vertical-align: middle;
     color: #555
+}
+
+.ext-ico {
+    vertical-align: middle;
+    color: #666;
 }
 
 .content-wrapper {
@@ -153,6 +198,11 @@ a:visited {
     width: 100%;
     height: 100%;
     overflow: scroll;
+}
+
+.status-bar {
+    background-color: #ddd;
+    border-top: 3px solid #aaa;
 }
 
 
