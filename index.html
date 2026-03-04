@@ -1,114 +1,229 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
-    <title>Peter Fraedrich</title>
+    <title>About Me | Peter Fraedrich</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
-    <script src="script.js"></script>
 </head>
 
-<body>
-    <div class="bg">
-        <div class="container d-none" id="main">
-            <div class="d-flex flex-row">
-                <div class="flex-fill">
-                    <div class="container wrapper p-0">
-                        <div class="d-flex flex-row justify-content-end align-items-center top-bar pe-1">
-                            <div class="flex-fill d-flex">
-                                <div class="window-icon ms-2 align-items-center d-flex title"><img class="title-ico" src="img/me_square_bw.png"></div>
-                                <div class="window-title p-2 title align-items-center d-flex">Peter Christian Fraedrich <span class="subtitle">| peterfraedrich.com</span></div>
-                            </div>
-                            <div class="flex">
-                                <button class="window-button wb-minimize text-center" onClick="windowMin()"><ion-icon name="chevron-down-outline"></ion-icon></button>
-                            </div>
-                            <div class="flex">
-                                <button class="window-button wb-maximize text-center" onClick="windowMax()"><ion-icon name="albums-outline"></ion-icon></button>
-                            </div>
-                            <div class="flex">
-                                <button class="window-button wb-close text-center" onclick="windowClose()"><ion-icon name="close-outline"></ion-icon></button>
-                            </div>
+<body class="container">
+    <div class="row mt-5"></div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-10">
+            <div class="container">
+                <p class="display-1 text-dark">I'm Pete Fraedrich.</p>
+                <p class="lead">I am a technology leader with over 15 years of experience in software development, developer tooling, reliability, and infrastructure.</p>
+                <p>I bring experience in across multiple verticals -- SaaS, fintech, healthcare, and hospitality -- but I'm always open to jumping into something new.</p>
+            </div>
+            <div class="container bg-warning p-3 mb-3 rounded">
+                <h1 class="display-5">Hire Me!</h1>
+                <p class="lead">Seeking positions in software engineering, DevOps, SRE, and cloud leadership at the Director+ level (ideally VP or C-level).</p>
+                <a class="btn btn-light" href="mailto:peterfraedrich+website@gmail.com">Click Here to Contact</a>
+                <a class="btn" href="peterfraedrich-resume.pdf">Download CV</a>
+            </div>
+            <div class="container">
+                <div class="row bg-light p-3 mb-3 rounded">
+                    <div class="col-5">
+                        <img src="./img/me_square.jpg" class="figure-img img-fluid rounded">
+                    </div>
+                    <div class="col">
+                        <h1 class="display-6">Career Statistics</h1>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Years from entry-level to Vice President
+                                <span class="badge text-bg-primary rounded-pill">11</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Cloud cost savings realized
+                                <span class="badge text-bg-success rounded-pill">-$2.1M</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Average team velocity improvement
+                                <span class="badge text-bg-success rounded-pill">+30%</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Average annual uptime improvement
+                                <span class="badge text-bg-success rounded-pill">+3%</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Team member voluntary resignations
+                                <span class="badge text-bg-secondary rounded-pill">1</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Times laid-off
+                                <span class="badge text-bg-light rounded-pill">3</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <h1 class="display-6">Areas of Expertise</h1>
+                    <div class="col">
+                        <div class="container">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <i class="bi bi-people-fill"></i>
+                                    People Management
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="bi bi-bar-chart-steps"></i>
+                                    Strategic Planning & Execution
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="bi bi-diagram-2-fill"></i>
+                                    Softare & Infrastructure Architecture
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="bi bi-hammer"></i>
+                                    Developer Experience and Tooling
+                                </li>
+                            </ul>
                         </div>
-                        <div class="d-flex flex-row not-title">
-                            <div class="d-flex p-2 align-items-center">
-                                <div class="nav-btn text-center"><ion-icon name="arrow-back-sharp"></ion-icon></div>
-                                <div class="nav-btn text-center"><ion-icon name="home-sharp"></ion-icon></div>
-                                <div class="nav-btn text-center"><ion-icon name="arrow-forward-sharp"></ion-icon></div>
-                            </div>
-                            <div class="flex-fill p-1 m-2 url-bar align-items-center d-flex">
-                                <div class="lock ms-2"><ion-icon name="lock-closed-sharp"></ion-icon></div>
-                                <div class="flex-fill ms-2">https://peterfraedrich.com</div>
-                            </div>
-                            <div class="d-flex align-items-center me-2">
-                                <img src="img/netscape.gif" class="browser-ico">
-                            </div>
+                    </div>
+                    <div class="col">
+                        <div class="container">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <i class="bi bi-clipboard-data"></i>
+                                    Performance Management
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="bi bi-graph-up-arrow"></i>
+                                    Cost Optimization
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="bi bi-sign-merge-left"></i>
+                                    Platform Consolidation
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="bi bi-stopwatch"></i>
+                                    Process Optimization
+                                </li>
+                            </ul>
                         </div>
-                        <div class="d-flex flex-row bookmarks-bar not-title">
-                            <div class="d-flex p-2 align-items-center  flex-fill">
-                                <button class="flex bookmark-btn text-center me-2"><span class="bkmk-ico"><ion-icon name="document-text-sharp"></ion-icon></span> About </button>
-                                <button class="flex bookmark-btn text-center me-2" onclick="navigate(this, 'linkedin')"><span class="bkmk-ico"><ion-icon name="logo-linkedin"></ion-icon></span> LinkedIn <span class="ext-ico"><ion-icon name="open-outline"></ion-icon></span></button>
-                                <button class="flex bookmark-btn text-center me-2" onclick="navigate(this, 'medium')"><span class="bkmk-ico"><ion-icon name="logo-medium"></ion-icon></span> Medium Blog <span class="ext-ico"><ion-icon name="open-outline"></ion-icon></span></button>
-                                <button class="flex bookmark-btn text-center me-2" onclick="navigate(this, 'github')"><span class="bkmk-ico"><ion-icon name="logo-octocat"></ion-icon></span> GitHub <span class="ext-ico"><ion-icon name="open-outline"></ion-icon></span></button>
-                                <button class="flex bookmark-btn text-center me-2" onclick="navigate(this, 'twitter')"><span class="bkmk-ico"><ion-icon name="logo-twitter"></ion-icon></span> Twitter <span class="ext-ico"><ion-icon name="open-outline"></ion-icon></span></button>
-                            </div>
-                            <div class="d-flex justify-content-end align-items-center p-2">
-                                <a href="mailto:peterfraedrich+website@gmail.com" target="_blank">
-                                    <div class="flex bookmark-btn text-center me-2"><span class="bkmk-ico"><ion-icon name="mail-sharp"></ion-icon></span> E-Mail Me!</div>
-                                </a>
-                            </div>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <h1 class="display-6">Career Highlights</h1>
+                    <div class="list-group mx-3 list-group-flush">
+                        <div class="list-group-item">
+                            <div class=""><span class="h4">Cloud Cost Optimization</span><small> - Cendyn</small></div>
+                            <p class="">Reduced Cendyn's public cloud expenditure by <strong>$1.3M</strong> annually through resource rightsizing, decommissioning old resources,
+                                leveraging CSP and 3rd party recommendations, re-architecting applications, and enabling realistic data lifecycle policies.
+                            </p>
                         </div>
-                        <div class="d-flex flex-row not-title">
-                            <div class="content-wrapper d-flex flex-fill">
-                                <iframe name="content" src="html/about.html" class="content-frame"></iframe>
-                            </div>
+                        <div class="list-group-item">
+                            <div class=""><span class="h4">Cloud Migration Strategy</span><small> - Cendyn</small></div>
+                            <p class="">Developed and began executing a 5-year public cloud consolidation and migration strategy, consolidating from seven cloud providers to two -- AWS and Azure -- while
+                                making much-needed changes to the fundamental AWS infrastructure, primarily by migrating to Terraform for Infrastructure as Code (IaC). Total financial impact of the project was
+                                to be a net 5% reduction in costs and more easily manageable public cloud infrastructure.
+                            </p>
                         </div>
-                        <div class="d-flex flex-row status-bar not-title">
-                            <div class="d-flex mb-2 ms-2">
-                                <div class="progress ">
-                                    <div class="track">
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
+                        <div class="list-group-item">
+                            <div class=""><span class="h4">Increased Global Product Uptime</span><small> - Cendyn</small></div>
+                            <p class="">With a strong focus on reliability, observability, and automation, the Platform team was able to increase Cendyn's product uptime by 3% annually,
+                                representing about <strong>12 days</strong> of additional availability over a single year.
+                            </p>
+                        </div>
+                        <div class="list-group-item">
+                            <div class=""><span class="h4">Team Process Improvement</span><small> - Ally Financial</small></div>
+                            <p class="">
+                                Increased team velocity by <strong>27%</strong> by spearheding the implementation of Agile-inspired processes in the SRE organization, increasing team morale, and better team execution on strategic goals.
+                            </p>
+                        </div>
+                        <div class="list-group-item">
+                            <div class=""><span class="h4">Incident Duration Reduction</span><small> - Ally Financial</small></div>
+                            <p class="">
+                                Reduced incident duration by <strong>2% month-over-month</strong> through the improvement of application observability, production readiness, and post-incident Root Cause Analysis (RCA).
+                            </p>
+                        </div>
+                        <div class="list-group-item">
+                            <div class=""><span class="h4">CI/CD Optimization & Rearchitecture</span><small> - ID.me</small></div>
+                            <p class="">
+                                Reduced software build and deploy times by <strong>30%</strong> and removed manual processes from CI/CD systems through the comprehensive redesign and deployment of a net-new CI/CD system with a greater
+                                focus on containerization, pipeline reusablility, and end-to-end automation deploy and rollback.
+                            </p>
+                        </div>
+                        <div class="list-group-item">
+                            <div class=""><span class="h4">Career Advancement</span><small> - Binary Fountain</small></div>
+                            <p class="">
+                                Mentored one of the IT engineers who showed and interest in moving to cloud infrastructure. The engineer was later able to transition into a cloud-focused
+                                role and is thriving in their new career path.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row p-3 bg-light rounded">
+                    <h1 class="display-5">Skills & Certifications</h1>
+                    <div class="col">
+                        <h5>Certifications</h1>
+                            <small>
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item ">
+                                        <i class="bi bi-file-earmark-medical"></i>
+                                        AWS Certified Cloud Practitioner Certification
+                                    </div>
+                                    <div class="list-group-item ">
+                                        <i class="bi bi-file-earmark-medical"></i>
+                                        PagerDuty DevOps Professional Certification
+                                    </div>
+                                    <div class="list-group-item ">
+                                        <i class="bi bi-file-earmark-medical"></i>
+                                        ServiceNow IT Leadership Professional
+                                    </div>
+                                    <div class="list-group-item ">
+                                        <i class="bi bi-file-earmark-medical"></i>
+                                        Atlassian Agile Project Management Professional
                                     </div>
                                 </div>
+                            </small>
+
+                    </div>
+                    <div class="col">
+                        <h5>Technical Skills</h5>
+                        <div class="list-group list-group-flush">
+                            <div class=" list-group-item ">
+                                <i class="bi bi-braces"></i>
+                                Languages: Go, Python, JavaScript, shell
                             </div>
-                            <div class="d-flex flex-fill"></div>
-                            <div class="d-flex align-items-center me-2">
-                                <span class="smalltext"><ion-icon name="arrow-up-sharp"></ion-icon>13kbps <ion-icon name="arrow-down-sharp"></ion-icon>22kbps</span>
+                            <div class=" list-group-item ">
+                                <i class="bi bi-box"></i>
+                                Containers: Docker, Kubernetes
+                            </div>
+                            <div class=" list-group-item ">
+                                <i class="bi bi-tools"></i>
+                                Automation & IAC: Terraform, Ansible
+                            </div>
+                            <div class=" list-group-item ">
+                                <i class="bi bi-database"></i>
+                                Databases: PostgreSQL, MySQL, Redis, DynamoDB
+                            </div>
+                            <div class=" list-group-item ">
+                                <i class="bi bi-cloud"></i>
+                                Cloud Providers: AWS, GCP, Azure, Digital Ocean, Linode
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="icon" onClick="windowOpen()">
-            <img src="img/netscape-icon.png" id="icon-image">
-            <div id="shortcut-bg"></div>
-            <div id="shortcut"><ion-icon name="arrow-redo-sharp"></ion-icon></div>
-            <div id="name">Netscape<br>Navigator</div>
-        </div>
-    </div>
-</body>
+            <div class="container text-center mt-5 mb-5">
+                <p class="">
+                    <small>
+                        This is only a snapshot of my total experience, skills, and professional life.<br>
+                        If you would like to know more, you can contact me <a href="mailto:peterfraedrich+website@gmail.com">here</a>.<br>
+                        Thanks for reading!
+                    </small>
 
-</html>
+                </p>
+                <img class="mt-5" src="./img/pete-logo-black.png" width="10%">
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+    <script>
+        console.log("What are you doing here? Go away.")
+    </script>
+</body>
