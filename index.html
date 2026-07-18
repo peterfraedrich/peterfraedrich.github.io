@@ -1,335 +1,1771 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>About Me | Peter Fraedrich</title>
-    <meta name="description" content="Personal website of Pete Fraedrich, technology leader with over 15 years of experience in software development, developer tooling, reliability, and infrastructure.">
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Pete Fraedrich — Technology Leader</title>
+    <meta name="description" content="Pete Fraedrich is a technology leader with 15+ years across software development, developer tooling, reliability, and infrastructure. Available for Director+, VP, and C-level roles.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--[if lt IE 9]> 
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script> 
-        <![endif]-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <meta name="color-scheme" content="light dark">
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pete Fraedrich — Technology Leader">
+    <meta property="og:description" content="15+ years leading software, platform, and reliability teams. Seeking Director+ / VP / C-level roles.">
+    <meta property="og:url" content="https://peterfraedrich.com">
+    <meta property="og:image" content="https://peterfraedrich.com/img/me-color.jpg">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Stack+Sans+Headline:wght@700&display=swap" rel="stylesheet">
+
     <!--
-        100% hand-crafted -- no environments were exploited in the making of this website.
+        100% hand-crafted -- no frameworks, no CDNs, no build step.
+        Type is Stack Sans Headline + Google Sans; icons are inline SVG.
     -->
+
+    <!-- Marks scripting active before first paint; reveal animations are gated on this. -->
+    <script>document.documentElement.classList.add('js');</script>
+
+    <style>
+        /* ---------- Design tokens ---------- */
+        :root {
+            --bg: #ffffff;
+            --bg-subtle: #f5f6f8;
+            --bg-inset: #eceef1;
+            --ink: #14171c;
+            --ink-soft: #3a414c;
+            --muted: #6b7280;
+            --border: #e4e7ec;
+            --accent: #60c9fd;
+            --accent-ink: #157ba7;
+            --accent-soft: #e7f4fb;
+            --pos: #04fdb7;
+            --band-bg: #0b0d12;
+            --band-ink: #f4f6fa;
+            --band-muted: #9aa4b2;
+            --band-accent: #5bbce8;
+            --shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 8px 24px rgba(16, 24, 40, .06);
+            --radius: 14px;
+            --maxw: 1080px;
+            --font: "Google Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+            --display: "Stack Sans Headline", "Google Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+        }
+
+        html[data-theme="dark"] {
+            --bg: #0b0d12;
+            --bg-subtle: #12151c;
+            --bg-inset: #171b23;
+            --ink: #eef1f6;
+            --ink-soft: #c4cbd6;
+            --muted: #98a2b3;
+            --border: #232833;
+            --accent: #4fb8e8;
+            --accent-ink: #4fb8e8;
+            /*--accent-ink: #86ccee;*/
+            --accent-soft: #10232f;
+            --pos: #35d9a2;
+            --band-bg: #05070b;
+            --band-ink: #f4f6fa;
+            --band-muted: #8b95a5;
+            --band-accent: #57bce8;
+            --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 28px rgba(0, 0, 0, .45);
+        }
+
+        /* ---------- Reset / base ---------- */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font);
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.6;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            transition: background .3s ease, color .3s ease;
+        }
+
+        a {
+            color: var(--accent-ink);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--display);
+            line-height: 1.1;
+            letter-spacing: -.01em;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .wrap {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 22px;
+        }
+
+        section {
+            padding: clamp(48px, 8vw, 88px) 0;
+        }
+
+        /* Eyebrow label (mono nod to engineering roots) */
+        .eyebrow {
+            font-family: var(--mono);
+            font-size: 13px;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: var(--accent-ink);
+            margin: 0 0 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 22px;
+            height: 2px;
+            background: var(--accent);
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+        }
+
+        .lead {
+            font-size: clamp(1.05rem, 2vw, 1.2rem);
+            color: var(--ink-soft);
+        }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 11px 20px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: transform .12s ease, background .2s ease, border-color .2s ease;
+        }
+
+        .btn:hover {
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #06232f;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(.94);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--ink);
+            border-color: var(--border);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--accent);
+            color: var(--accent-ink);
+        }
+
+        .btn svg {
+            width: 17px;
+            height: 17px;
+        }
+
+        /* ---------- Nav ---------- */
+        header.nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: color-mix(in srgb, var(--bg) 82%, transparent);
+            backdrop-filter: saturate(160%) blur(10px);
+            border-bottom: 1px solid transparent;
+            transition: border-color .2s ease, background .2s ease;
+        }
+
+        header.nav.scrolled {
+            border-bottom-color: var(--border);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            height: 76px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand:hover {
+            text-decoration: none;
+        }
+
+        .brand img {
+            height: 42px;
+            width: auto;
+            display: block;
+        }
+
+        html[data-theme="dark"] .brand img {
+            filter: invert(1);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .icon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+            color: var(--muted);
+            background: transparent;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: color .15s ease, background .15s ease;
+        }
+
+        .icon-btn:hover {
+            color: var(--accent-ink);
+            background: var(--bg-subtle);
+            text-decoration: none;
+        }
+
+        .icon-btn svg {
+            width: 19px;
+            height: 19px;
+        }
+
+        .nav-links .label-link {
+            display: none;
+        }
+
+        @media (max-width: 560px) {
+
+            .nav-links .social {
+                display: none;
+            }
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            padding-top: clamp(40px, 7vw, 72px);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: clamp(28px, 5vw, 64px);
+            align-items: center;
+        }
+
+        @media (max-width: 780px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-photo {
+                order: -1;
+                max-width: 240px;
+            }
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--ink-soft);
+            background: var(--accent-soft);
+            border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+            padding: 6px 12px 6px 10px;
+            border-radius: 999px;
+            margin-bottom: 22px;
+        }
+
+        .pill .tag {
+            font-family: var(--mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            color: #06232f;
+            background: var(--accent);
+            padding: 2px 7px;
+            border-radius: 999px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.6rem, 7vw, 4.4rem);
+            margin-bottom: 18px;
+        }
+
+        .hero h1 .accent {
+            color: var(--accent);
+        }
+
+        .hero .tagline {
+            font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+            color: var(--ink-soft);
+            font-weight: 500;
+            max-width: 42ch;
+            margin-bottom: 26px;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+
+        /* ---------- Stats band ---------- */
+        .band {
+            background: var(--band-bg);
+            color: var(--band-ink);
+            transition: background .3s ease;
+        }
+
+        /* Dark mode: paint the band in the accent color so it stands out.
+           Redefining the --band-* props (and --pos) here flips every label,
+           title, and stat number to dark ink for contrast automatically. */
+        html[data-theme="dark"] .band {
+            background: var(--accent);
+            --band-ink: #f4f6fa;
+            --band-accent: #f4f6fa;
+            --band-muted: #05070b;
+            --pos: #b7ffeb;
+            --band-eyebrow: #05070b;
+        }
+
+        .band .eyebrow {
+            color: var(--band-eyebrow);
+        }
+
+        .band .eyebrow::before {
+            background: var(--band-eyebrow);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin-top: 34px;
+        }
+
+        @media (max-width: 820px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 26px 18px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .stat .num {
+            font-family: var(--display);
+            font-size: clamp(2.2rem, 5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -.02em;
+            line-height: 1;
+            color: var(--band-accent);
+        }
+
+        .stat .num.pos {
+            color: var(--pos);
+        }
+
+        .stat .lbl {
+            margin-top: 10px;
+            font-size: 14px;
+            color: var(--band-muted);
+            line-height: 1.4;
+        }
+
+        /* ---------- About ---------- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(28px, 5vw, 56px);
+        }
+
+        @media (max-width: 780px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .about-grid p {
+            color: var(--ink-soft);
+        }
+
+        .glance {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 4px 24px;
+            align-self: start;
+        }
+
+        .glance .g-row {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .glance .g-row:last-child {
+            border-bottom: 0;
+        }
+
+        .glance .g-k {
+            font-family: var(--mono);
+            font-size: 11.5px;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            color: var(--muted);
+        }
+
+        .glance .g-v {
+            font-size: 15.5px;
+            font-weight: 500;
+            color: var(--ink);
+        }
+
+        .disc {
+            margin-top: 52px;
+            padding-top: 44px;
+            border-top: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1fr 1.35fr;
+            gap: clamp(24px, 4vw, 48px);
+            align-items: start;
+        }
+
+        @media (max-width: 720px) {
+            .disc {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+        }
+
+        .disc-lead {
+            font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+            font-weight: 500;
+            font-family: var(--display);
+            letter-spacing: -.01em;
+            line-height: 1.35;
+            color: var(--ink);
+            margin: 0;
+        }
+
+        .disc-lead strong {
+            color: var(--accent-ink);
+            font-weight: 700;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .chip {
+            font-size: 14.5px;
+            font-weight: 500;
+            padding: 9px 16px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+            color: var(--ink);
+            transition: transform .15s ease, background .18s ease, border-color .18s ease;
+        }
+
+        .chip:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            background: color-mix(in srgb, var(--accent) 16%, var(--accent-soft));
+        }
+
+        /* ---------- Expertise ---------- */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 36px;
+        }
+
+        @media (max-width: 900px) {
+            .expertise-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .exp-card {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 22px;
+        }
+
+        .exp-card .ic {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--accent-soft);
+            color: var(--accent-ink);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+
+        .exp-card .ic svg {
+            width: 21px;
+            height: 21px;
+        }
+
+        .exp-card h3 {
+            font-size: 1.02rem;
+            font-weight: 700;
+            letter-spacing: -.01em;
+        }
+
+        .exp-card p {
+            margin: 8px 0 0;
+            font-size: 14.5px;
+            color: var(--muted);
+        }
+
+        /* ---------- Highlights ---------- */
+        .highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 36px;
+        }
+
+        @media (max-width: 780px) {
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hl {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 22px 24px;
+            background: var(--bg);
+            transition: border-color .2s ease, transform .2s ease;
+        }
+
+        .hl:hover {
+            border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+            transform: translateY(-2px);
+        }
+
+        .hl .top {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .hl h3 {
+            font-size: 1.12rem;
+            font-weight: 700;
+            letter-spacing: -.01em;
+        }
+
+        .hl .org {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .hl p {
+            margin: 0;
+            font-size: 15px;
+            color: var(--ink-soft);
+        }
+
+        .hl strong {
+            color: var(--accent-ink);
+            font-weight: 700;
+        }
+
+        /* ---------- Writing ---------- */
+        .section-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .section-head .more {
+            font-weight: 600;
+            font-size: 14.5px;
+            white-space: nowrap;
+        }
+
+        .writing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 36px;
+        }
+
+        @media (max-width: 820px) {
+            .writing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .post {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--bg);
+            transition: border-color .2s ease, transform .2s ease;
+        }
+
+        .post:hover {
+            border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .post-thumb {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            background: var(--bg-inset);
+            display: block;
+        }
+
+        .post-body {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 22px 24px;
+        }
+
+        .post .k {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .post h3 {
+            font-size: 1.12rem;
+            font-weight: 700;
+            letter-spacing: -.01em;
+        }
+
+        .post p {
+            font-size: 14.5px;
+            color: var(--ink-soft);
+            margin: 9px 0 18px;
+        }
+
+        .post .read {
+            margin-top: auto;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--accent-ink);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .post .read svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        /* ---------- Skills & certs ---------- */
+        .skills {
+            background: var(--bg-subtle);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(28px, 5vw, 56px);
+            margin-top: 32px;
+        }
+
+        @media (max-width: 780px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .skills h3.col-h {
+            font-size: 1rem;
+            font-family: var(--mono);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .cert {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 13px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cert:last-child {
+            border-bottom: 0;
+        }
+
+        .cert .name {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .cert .name svg {
+            width: 18px;
+            height: 18px;
+            color: var(--accent-ink);
+            flex: none;
+        }
+
+        .cert .by {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .skill-row {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 15px;
+        }
+
+        .skill-row:last-child {
+            border-bottom: 0;
+        }
+
+        .skill-row b {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .skill-row .vals {
+            color: var(--muted);
+        }
+
+        /* ---------- Work with me ---------- */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 36px;
+        }
+
+        @media (max-width: 820px) {
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .work-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 26px 24px;
+            display: flex;
+            flex-direction: column;
+            background: var(--bg);
+        }
+
+        .work-card.feature {
+            border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+            background: var(--accent-soft);
+        }
+
+        .work-card .ic {
+            width: 42px;
+            height: 42px;
+            border-radius: 11px;
+            background: var(--bg-inset);
+            color: var(--accent-ink);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .work-card.feature .ic {
+            background: var(--accent);
+            color: #06232f;
+        }
+
+        .work-card .ic svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .work-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .work-card p {
+            color: var(--ink-soft);
+            font-size: 15px;
+            margin: 10px 0 14px;
+        }
+
+        .work-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 22px;
+            font-size: 14.5px;
+            color: var(--muted);
+        }
+
+        .work-card ul li {
+            padding: 4px 0 4px 20px;
+            position: relative;
+        }
+
+        .work-card ul li::before {
+            content: "›";
+            position: absolute;
+            left: 4px;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .work-card .btn {
+            margin-top: auto;
+            align-self: flex-start;
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 54px 0 40px;
+            text-align: center;
+        }
+
+        footer .foot-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 26px;
+        }
+
+        footer .foot-note {
+            color: var(--muted);
+            font-size: 14px;
+            max-width: 46ch;
+            margin: 0 auto 26px;
+        }
+
+        footer .logo {
+            width: 64px;
+            margin: 0 auto;
+            opacity: .8;
+        }
+
+        html[data-theme="dark"] footer .logo {
+            filter: invert(1);
+        }
+
+        /* ---------- Scroll reveal ----------
+           Hidden state only applies when JS is active (html.js), so with no
+           scripting the content is always visible. */
+        .reveal {
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        html.js .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        html.js .reveal.in {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html.js .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        .skip {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 0 0 8px 0;
+            z-index: 100;
+        }
+
+        .skip:focus {
+            left: 0;
+        }
+
+        /* ---------- Easter eggs ----------
+           1) Click "SPACE" in the About section -> rocket launch.
+           2) Konami code (arrows + B A Enter) -> a herd of dinosaurs. */
+        .egg-space {
+            cursor: pointer;
+            -webkit-user-select: none;
+            user-select: none;
+            transition: color .15s ease, text-shadow .15s ease;
+        }
+
+        .egg-space:hover {
+            color: var(--accent-ink);
+            text-shadow: 0 0 12px color-mix(in srgb, var(--accent) 55%, transparent);
+        }
+
+        .egg-rocket {
+            position: fixed;
+            bottom: 0;
+            z-index: 9999;
+            font-size: 46px;
+            line-height: 1;
+            pointer-events: none;
+            will-change: transform;
+        }
+
+        .egg-rocket span {
+            display: block;
+            animation: egg-launch 1.9s cubic-bezier(.45, 0, .85, .35) forwards;
+        }
+
+        @keyframes egg-launch {
+            0% {
+                transform: translateY(80px) rotate(-45deg) scale(.9);
+            }
+
+            14% {
+                transform: translateY(-4px) rotate(-45deg) scale(1.05);
+            }
+
+            24% {
+                transform: translateY(14px) rotate(-45deg) scale(1);
+            }
+
+            100% {
+                transform: translateY(-118vh) rotate(-45deg) scale(.85);
+            }
+        }
+
+        .egg-dino,
+        .egg-jeep {
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            z-index: 9999;
+            line-height: 1;
+            pointer-events: none;
+            transform: translateX(112vw);
+            animation-name: egg-run;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+            will-change: transform;
+        }
+
+        .egg-dino span {
+            display: inline-block;
+            animation: egg-bob .45s ease-in-out infinite;
+        }
+
+        /* The Jeep just rumbles along (no lumbering gait). */
+        .egg-jeep span {
+            display: inline-block;
+            animation: egg-rumble .12s ease-in-out infinite;
+        }
+
+        @keyframes egg-run {
+            to {
+                transform: translateX(-26vw);
+            }
+        }
+
+        @keyframes egg-bob {
+
+            0%,
+            100% {
+                translate: 0 0;
+            }
+
+            50% {
+                translate: 0 -12px;
+            }
+        }
+
+        @keyframes egg-rumble {
+
+            0%,
+            100% {
+                translate: 0 0;
+            }
+
+            50% {
+                translate: 0 -1.5px;
+            }
+        }
+    </style>
 </head>
 
-<body class="container">
-    <div class="row mt-3"></div>
-    <div class="row">
-        <div class="col"></div>
-        <div class="col-10">
-            <div class="alert alert-info position-relative top-0 start-0 w-100 fade show" role="alert">
-                <h5 class=" lead d-inline"><i class="bi bi-megaphone-fill mx-2"></i>New certification!</h5>
-                <div class="container d-inline fs-5">AI for Organizational Leaders <span class="fs-6 text-secondary">(Microsoft, March 2026)</span></div>
-                <a class="btn d-inline" href="#certifications"><i class="bi bi-arrow-right"></i></a>
-            </div>
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/peterfraedrich" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://bsky.app/profile/peterfraedrich.com" target="_blank"><i class="bi bi-bluesky"></i> BlueSky</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://www.linkedin.com/in/peterfraedrich" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://peterfraedrich.medium.com" target="_blank"><i class="bi bi-medium"></i> Medium Blog</a>
-                </li>
-            </ul>
-            <div class="container">
-                <p class="display-1 text-dark">I'm Pete Fraedrich.</p>
-                <p class="lead">I am a technology leader with over 15 years of experience in software development, developer tooling, reliability, and infrastructure.</p>
-                <p>I bring experience across multiple verticals -- SaaS, fintech, healthcare, and hospitality -- but I'm always open to jumping into something new. I would love
-                    an opportunity to dive into games, HPC, and enterprise developer tooling.
-                </p>
-                <p>
-                    Outside work I am an avid writer, sharing my opinion and thoughts on technology on my <a class="" href="https://peterfraedrich.medium.com" target="_blank"><i class="bi bi-medium"></i> Medium Blog</a>, write and record music with <a href="https://famousforacentury.com">Famous For A Century</a>, and occasionally build guitars.
-                </p>
-                <p class="lead fw-normal">I reside in Herndon, VA with my amazing wife and three wacky kids.</p>
-            </div>
-            <div class="container bg-warning p-3 mb-3 rounded sticky-top">
-                <h1 class="display-5">Hire Me!</h1>
-                <p class="lead">Seeking positions in software engineering, DevOps, SRE, and cloud leadership at the Director+ level (ideally VP or C-level).</p>
-                <a class="btn btn-light" href="mailto:peterfraedrich+ftee@gmail.com">Click Here to Contact</a>
-                <a class="btn" href="peterfraedrich-resume.pdf">Download CV</a>
-            </div>
-            <div class="container">
-                <div class="row bg-light p-3 mb-3 rounded">
-                    <div class="col d-none d-md-block">
-                        <img src="./img/me_square.jpg" class="figure-img img-fluid rounded">
-                    </div>
-                    <div class="col">
-                        <img src="./img/me_square.jpg" class="figure-img img-fluid rounded d-block d-md-none">
-                        <h1 class="display-6">Career Statistics</h1>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class="fw-semibold"> Years from entry-level to Vice President</span>
-                                <span class="badge text-bg-primary fs-6">11</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class="fw-semibold">Cloud cost savings realized</span>
-                                <span class="badge text-bg-success fs-6">-$2.1M</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class="fw-semibold">Average team velocity improvement</span>
-                                <span class="badge text-bg-success fs-6">+30%</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class="fw-semibold">Average annual uptime improvement</span>
-                                <span class="badge text-bg-success fs-6">+3%</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class="fw-semibold">Team turnover rate</span>
-                                <span class="badge text-bg-secondary fs-6">&lt1%</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-top">
-                                <span class="fw-semibold">Disciplines led</span>
-                                <ul class="list-unstyled">
-                                    <li class="small"><i class="bi bi-caret-right-fill"></i> Software Development</li>
-                                    <li class="small"><i class="bi bi-caret-right-fill"></i> Platform Engineering</li>
-                                    <li class="small"><i class="bi bi-caret-right-fill"></i> Cloud (Public/Private)</li>
-                                    <li class="small"><i class="bi bi-caret-right-fill"></i> DevOps</li>
-                                    <li class="small"><i class="bi bi-caret-right-fill"></i> SRE</li>
-                                    <li class="small"><i class="bi bi-caret-right-fill"></i> Security</li>
-                                    <li class="small"><i class="bi bi-caret-right-fill"></i> IT</li>
-                                    <li class="small"><i class="bi bi-caret-right-fill"></i> NOC</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row p-3">
-                    <h1 class="display-6">Areas of Expertise</h1>
-                    <div class="col">
-                        <div class="container">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <i class="bi bi-people-fill"></i>
-                                    People Management
-                                </li>
-                                <li class="list-group-item">
-                                    <i class="bi bi-bar-chart-steps"></i>
-                                    Strategic Planning & Execution
-                                </li>
-                                <li class="list-group-item">
-                                    <i class="bi bi-diagram-2-fill"></i>
-                                    Softare & Infrastructure Architecture
-                                </li>
-                                <li class="list-group-item">
-                                    <i class="bi bi-hammer"></i>
-                                    Developer Experience and Tooling
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="container">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <i class="bi bi-clipboard-data"></i>
-                                    Performance Management
-                                </li>
-                                <li class="list-group-item">
-                                    <i class="bi bi-graph-up-arrow"></i>
-                                    Cost Optimization
-                                </li>
-                                <li class="list-group-item">
-                                    <i class="bi bi-sign-merge-left"></i>
-                                    Platform Consolidation
-                                </li>
-                                <li class="list-group-item">
-                                    <i class="bi bi-stopwatch"></i>
-                                    Process Optimization
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="row p-3">
-                    <h1 class="display-6">Career Highlights</h1>
-                    <div class="list-group mx-3 list-group-flush">
-                        <div class="list-group-item">
-                            <div class=""><span class="h4">Cloud Cost Optimization</span><small> - Cendyn</small></div>
-                            <p class="">Reduced Cendyn's public cloud expenditure by <strong>$1.3M</strong> annually through resource rightsizing, decommissioning old resources,
-                                leveraging CSP and 3rd party recommendations, re-architecting applications, and enabling realistic data lifecycle policies.
-                            </p>
-                        </div>
-                        <div class="list-group-item">
-                            <div class=""><span class="h4">Cloud Migration Strategy</span><small> - Cendyn</small></div>
-                            <p class="">Developed and began executing a 5-year public cloud consolidation and migration strategy, consolidating from seven cloud providers to two -- AWS and Azure -- while
-                                making much-needed changes to the fundamental AWS infrastructure, primarily by migrating to Terraform for Infrastructure as Code (IaC). Total financial impact of the project was
-                                to be a net 5% reduction in costs and more easily manageable public cloud infrastructure.
-                            </p>
-                        </div>
-                        <div class="list-group-item">
-                            <div class=""><span class="h4">Increased Global Product Uptime</span><small> - Cendyn</small></div>
-                            <p class="">With a strong focus on reliability, observability, and automation, the Platform team was able to increase Cendyn's product uptime by 3% annually,
-                                representing about <strong>12 days</strong> of additional availability over a single year.
-                            </p>
-                        </div>
-                        <div class="list-group-item">
-                            <div class=""><span class="h4">Team Process Improvement</span><small> - Ally Financial</small></div>
-                            <p class="">
-                                Increased team velocity by <strong>27%</strong> by spearheding the implementation of Agile-inspired processes in the SRE organization, increasing team morale, and better team execution on strategic goals.
-                            </p>
-                        </div>
-                        <div class="list-group-item">
-                            <div class=""><span class="h4">Incident Duration Reduction</span><small> - Ally Financial</small></div>
-                            <p class="">
-                                Reduced incident duration by <strong>2% month-over-month</strong> through the improvement of application observability, production readiness, and post-incident Root Cause Analysis (RCA).
-                            </p>
-                        </div>
-                        <div class="list-group-item">
-                            <div class=""><span class="h4">CI/CD Optimization & Rearchitecture</span><small> - ID.me</small></div>
-                            <p class="">
-                                Reduced software build and deploy times by <strong>30%</strong> and removed manual processes from CI/CD systems through the comprehensive redesign and deployment of a net-new CI/CD system with a greater
-                                focus on containerization, pipeline reusablility, and end-to-end automation deploy and rollback.
-                            </p>
-                        </div>
-                        <div class="list-group-item">
-                            <div class=""><span class="h4">Employee Mentorship</span><small> - Binary Fountain</small></div>
-                            <p class="">
-                                Mentored one of the IT engineers who showed and interest in moving to cloud infrastructure. The engineer was later able to transition into a cloud-focused
-                                role and is thriving in their new career path.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div id="certifications" class="row p-3 bg-light rounded">
-                    <h1 class="display-5">Skills & Certifications</h1>
-                    <div class="col">
-                        <h5>Certifications</h5>
-                        <div class="list-group list-group-flush">
-                            <div class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class=""><i class="bi bi-cloud-check me-2"></i>Certified Cloud Practitioner</span>
-                                <span class="text-secondary">AWS</span>
-                            </div>
-                            <div class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class=""><i class="bi bi-terminal me-2"></i>DevOps Professional</span>
-                                <span class="text-secondary">PagerDuty</span>
-                            </div>
-                            <div class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class=""><i class="bi bi-cpu me-2"></i>IT Leadership Professional</span>
-                                <span class="text-secondary">ServiceNow</span>
-                            </div>
-                            <div class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class=""><i class="bi bi-kanban me-2"></i>Agile Project Management Professional</span>
-                                <span class="text-secondary">Atlassian</span>
-                            </div>
-                            <div class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class=""><i class="bi bi-stars me-2"></i>AI for Organizational Leaders</span>
-                                <span class="text-secondary">Microsoft</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <h5>Technical Skills</h5>
-                        <div class="list-group list-group-flush">
-                            <div class=" list-group-item ">
-                                <i class="bi bi-braces me-1"></i>
-                                <span class="fw-semibold">Languages:</span> Go, Python, JavaScript, shell
-                            </div>
-                            <div class=" list-group-item ">
-                                <i class="bi bi-box me-1"></i>
-                                <span class="fw-semibold">Containers:</span> Docker, Kubernetes
-                            </div>
-                            <div class=" list-group-item ">
-                                <i class="bi bi-tools me-1"></i>
-                                <span class="fw-semibold">Automation & IAC:</span> Terraform, Ansible, CloudFormation, CDK
-                            </div>
-                            <div class=" list-group-item ">
-                                <i class="bi bi-database me-1"></i>
-                                <span class="fw-semibold">Databases:</span> PostgreSQL, MySQL, Redis, DynamoDB, Clickhouse
-                            </div>
-                            <div class=" list-group-item ">
-                                <i class="bi bi-cloud me-1"></i>
-                                <span class="fw-semibold">Cloud Providers:</span> AWS, GCP, Azure, Digital Ocean, Linode
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-3 p-3">
-                    <h5 class="display-5">Contact Me For...</h5>
-                    <div class="row mt-2">
-                        <div class="col">
-                            <div class="card bg-warning m-2">
-                                <h5 class="card-header"><i class="bi bi-briefcase me-2"></i>Full-Time Positions</h5>
-                                <div class="card-body bg-light">
-                                    <p>Currently seeking full-time employment in technical leadership positions.</p>
-                                    <ul>
-                                        <li>CTO/CIO</li>
-                                        <li>VP of Engineering / Platform</li>
-                                        <li>Director of Engineering</li>
-                                    </ul>
-                                    <a class="btn btn-warning" href="mailto:peterfraedrich+fte@gmail.com">Email<i class="bi bi-arrow-right-short"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card bg-light m-2">
-                                <h5 class="card-header"><i class="bi bi-chat-left me-2"></i>Thought Leadership</h5>
-                                <div class="card-body bg-light">
-                                    <p>Not sure what to do next or how to improve your organization? I can help.</p>
-                                    <ul>
-                                        <li>Zoom Consultation</li>
-                                        <li>Short-Term Engagements</li>
-                                        <li>Technical Advice & Discussions</li>
-                                    </ul>
-                                    <a class="btn btn-outline-secondary" href="mailto:peterfraedrich+thought@gmail.com">Email<i class="bi bi-arrow-right-short"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card bg-secondary m-2">
-                                <h5 class="card-header text-light"><i class="bi bi-mic me-2"></i>Public Speaking</h5>
-                                <div class="card-body bg-light">
-                                    <p>Book me to speak at your next all-hands, team offsite, conference, or special event!</p>
-                                    <ul>
-                                        <li>People-First Leadership</li>
-                                        <li>Distributed Management</li>
-                                        <li>...or a topic of your choosing!</li>
-                                    </ul>
-                                    <a class="btn btn-secondary" href="mailto:peterfraedrich+speaking@gmail.com">Email<i class="bi bi-arrow-right-short"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <ul class="nav justify-content-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="mailto:peterfraedrich+website@gmail.com">
-                                <i class="bi bi-envelope"></i> Email
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="tel:+17028199704">
-                                <i class="bi bi-telephone"></i> Phone/SMS
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="container text-center mt-3 mb-5">
-                <p class="">
-                    <small>
-                        This is only a snapshot of my total experience, skills, and professional life.<br>
-                        If you would like to know more, you can contact me <a href="mailto:peterfraedrich+website@gmail.com">here</a>.<br>
-                        Thanks for reading!
-                    </small>
+<body>
+    <a href="#main" class="skip">Skip to content</a>
 
-                </p>
-                <img class="mt-5" src="./img/pete-logo-black.png" width="10%" style="min-width: 75px;">
-            </div>
+    <!-- ===================== NAV ===================== -->
+    <header class="nav" id="nav">
+        <div class="wrap nav-inner">
+            <a href="#top" class="brand" aria-label="Pete Fraedrich — home">
+                <img src="./img/pete-logo-black.png" alt="Pete Fraedrich" width="55" height="42">
+            </a>
+            <nav class="nav-links" aria-label="Social and settings">
+                <a class="icon-btn social" href="https://github.com/peterfraedrich" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+                    </svg>
+                </a>
+                <a class="icon-btn social" href="https://www.linkedin.com/in/peterfraedrich" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                        <path d="M0 1.15C0 .51.53 0 1.19 0h13.62C15.47 0 16 .51 16 1.15v13.7c0 .64-.53 1.15-1.19 1.15H1.19C.53 16 0 15.49 0 14.85V1.15Zm4.94 12.22V6.17H2.54v7.2h2.4Zm-1.2-8.18c.84 0 1.36-.55 1.36-1.24-.02-.71-.52-1.24-1.34-1.24-.82 0-1.36.53-1.36 1.24 0 .69.52 1.24 1.32 1.24h.02Zm4.13 8.18V9.35c0-.22.02-.43.08-.58.17-.43.56-.87 1.21-.87.85 0 1.19.65 1.19 1.6v3.87h2.4V9.22c0-2.22-1.18-3.25-2.76-3.25-1.29 0-1.86.71-2.18 1.2h.02v-1h-2.4c.03.68 0 7.2 0 7.2h2.4Z" />
+                    </svg>
+                </a>
+                <a class="icon-btn social" href="https://peterfraedrich.medium.com" target="_blank" rel="noopener" aria-label="Medium blog" title="Medium blog">
+                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                        <ellipse cx="4" cy="8" rx="4" ry="3.7" />
+                        <ellipse cx="10.6" cy="8" rx="1.6" ry="3.4" />
+                        <ellipse cx="14.9" cy="8" rx=".7" ry="3" />
+                    </svg>
+                </a>
+                <a class="icon-btn social" href="https://bsky.app/profile/peterfraedrich.com" target="_blank" rel="noopener" aria-label="Bluesky" title="Bluesky">
+                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                        <path d="M3.47 1.4C5.3 2.78 7.27 5.57 8 7.07c.73-1.5 2.7-4.29 4.53-5.67C13.85.41 16 -.36 16 2.1c0 .49-.28 4.13-.45 4.72-.57 2.05-2.66 2.58-4.52 2.26 3.25.56 4.08 2.4 2.29 4.24-3.4 3.49-4.88-.88-5.26-1.99-.07-.2-.1-.3-.1-.22 0-.08-.03.02-.1.22-.38 1.11-1.86 5.48-5.26 1.99-1.79-1.84-.96-3.68 2.29-4.24C3.02 9.4.93 8.87.36 6.82.19 6.23 0 2.59 0 2.1 0-.36 2.15.41 3.47 1.4Z" />
+                    </svg>
+                </a>
+                <button class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+                    <svg class="i-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                        <circle cx="8" cy="8" r="3.2" />
+                        <path d="M8 .8v1.6M8 13.6v1.6M2.9 2.9l1.1 1.1M12 12l1.1 1.1M.8 8h1.6M13.6 8h1.6M2.9 13.1l1.1-1.1M12 4l1.1-1.1" />
+                    </svg>
+                    <svg class="i-moon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" style="display:none">
+                        <path d="M6 1.2A6.8 6.8 0 1 0 14.8 10 5.4 5.4 0 0 1 6 1.2Z" />
+                    </svg>
+                </button>
+            </nav>
         </div>
-        <div class="col"></div>
-    </div>
+    </header>
+
+    <main id="main">
+        <span id="top"></span>
+
+        <!-- ===================== HERO ===================== -->
+        <section class="hero">
+            <div class="wrap hero-grid">
+                <div>
+                    <a href="#certifications" class="pill" style="text-decoration:none;color:inherit">
+                        <span class="tag">New Cert!</span> AI for Organizational Leaders — Microsoft, 2026
+                    </a>
+                    <h1>I'm Pete <span class="accent">Fraedrich.</span></h1>
+                    <p class="tagline">A technology leader with 15+ years across software development, developer
+                        tooling, reliability, and infrastructure.</p>
+                    <div class="hero-cta">
+                        <a class="btn btn-primary" href="mailto:peterfraedrich+website@gmail.com">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                                <rect x="1.5" y="3" width="13" height="10" rx="1.5" />
+                                <path d="m2 4 6 4.5L14 4" />
+                            </svg>
+                            Get in touch
+                        </a>
+                        <a class="btn btn-ghost" href="peterfraedrich-resume.pdf">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M8 1.5v8.5M4.5 7 8 10.5 11.5 7M2 13.5h12" />
+                            </svg>
+                            Download CV
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-photo">
+                    <img src="./img/me-color.jpg" width="360" height="360" alt="Portrait of Pete Fraedrich">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== STATS BAND ===================== -->
+        <section class="band">
+            <div class="wrap">
+                <p class="eyebrow">By the numbers</p>
+                <h2 class="section-title" style="color:var(--band-ink)">A track record of measurable impact.</h2>
+                <div class="stats">
+                    <div class="stat reveal">
+                        <div class="num">11</div>
+                        <div class="lbl">Years from entry-level to Vice President</div>
+                    </div>
+                    <div class="stat reveal">
+                        <div class="num pos">$2.1M</div>
+                        <div class="lbl">Annual cloud cost savings realized</div>
+                    </div>
+                    <div class="stat reveal">
+                        <div class="num pos">+30%</div>
+                        <div class="lbl">Average team velocity improvement</div>
+                    </div>
+                    <div class="stat reveal">
+                        <div class="num pos">+3%</div>
+                        <div class="lbl">Average annual uptime improvement</div>
+                    </div>
+                    <div class="stat reveal">
+                        <div class="num">&lt;1%</div>
+                        <div class="lbl">Team turnover rate</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== ABOUT ===================== -->
+        <section id="about">
+            <div class="wrap">
+                <p class="eyebrow">About</p>
+                <div class="about-grid">
+                    <div>
+                        <h2 class="section-title" style="margin-bottom:20px">Building high-performing teams and
+                            durable systems.</h2>
+                        <p>I bring experience across multiple verticals — SaaS, fintech, healthcare, and hospitality —
+                            but I'm always open to jumping into something new. I'd love the opportunity to dive into
+                            HPC, EduTech, and anything relating to <span class="egg-space" role="button" tabindex="0" aria-label="Easter egg: launch a rocket">SPACE</span>.</p>
+                        <p>Outside of work I'm an avid writer, sharing my thoughts on technology on my
+                            <a href="https://peterfraedrich.medium.com" target="_blank" rel="noopener">Medium blog</a>.
+                            I write and record music with
+                            <a href="https://famousforacentury.com" target="_blank" rel="noopener">Famous For A
+                                Century</a>, and I occasionally build guitars.
+                        </p>
+                        <p>I reside in Herndon, VA with my amazing wife and three wacky kids.</p>
+                    </div>
+                    <div class="glance reveal">
+                        <div class="g-row">
+                            <span class="g-k">Based in</span>
+                            <span class="g-v">Herndon, Virginia</span>
+                        </div>
+                        <div class="g-row">
+                            <span class="g-k">Experience</span>
+                            <span class="g-v">15+ years in technology</span>
+                        </div>
+                        <div class="g-row">
+                            <span class="g-k">Currently Seeking</span>
+                            <span class="g-v">CTO, CIO, VP, Senior Director roles</span>
+                        </div>
+                        <div class="g-row">
+                            <span class="g-k">Ideal Verticals</span>
+                            <span class="g-v">B2B SaaS, HPC, Space, EduTech</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="disc reveal">
+                    <p class="disc-lead">I've built and led teams across the <strong>full breadth of engineering and
+                            operations</strong> — from software delivery to the network floor.</p>
+                    <div class="chips">
+                        <span class="chip">Software Development</span>
+                        <span class="chip">Platform Engineering</span>
+                        <span class="chip">Cloud (Public / Private)</span>
+                        <span class="chip">DevOps</span>
+                        <span class="chip">SRE</span>
+                        <span class="chip">Security</span>
+                        <span class="chip">IT</span>
+                        <span class="chip">NOC</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== EXPERTISE ===================== -->
+        <section id="expertise" style="background:var(--bg-subtle)">
+            <div class="wrap">
+                <p class="eyebrow">Areas of expertise</p>
+                <h2 class="section-title">Where I create leverage.</h2>
+                <div class="expertise-grid">
+                    <div class="exp-card reveal">
+                        <span class="ic">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+                                <circle cx="5.5" cy="5" r="2.2" />
+                                <circle cx="11" cy="6" r="1.8" />
+                                <path d="M1.5 13c0-2.2 1.8-3.6 4-3.6s4 1.4 4 3.6M9.8 13c0-1.8 1.3-3 3.2-3 1.2 0 2.3.6 2.9 1.6" />
+                            </svg>
+                        </span>
+                        <h3>People Management</h3>
+                        <p>Growing engineers and building teams that ship — with &lt;1% turnover.</p>
+                    </div>
+                    <div class="exp-card reveal">
+                        <span class="ic">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true">
+                                <path d="M2 14h12M4 14V8M8 14V4M12 14v-3" />
+                            </svg>
+                        </span>
+                        <h3>Strategic Planning</h3>
+                        <p>Turning multi-year vision into roadmaps teams can actually execute.</p>
+                    </div>
+                    <div class="exp-card reveal">
+                        <span class="ic">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+                                <rect x="6" y="1.5" width="4" height="4" rx="1" />
+                                <rect x="1.5" y="10.5" width="4" height="4" rx="1" />
+                                <rect x="10.5" y="10.5" width="4" height="4" rx="1" />
+                                <path d="M8 5.5v3M8 8.5H3.5v2M8 8.5h4.5v2" />
+                            </svg>
+                        </span>
+                        <h3>Systems Architecture</h3>
+                        <p>Designing software and infrastructure that scales and stays maintainable.</p>
+                    </div>
+                    <div class="exp-card reveal">
+                        <span class="ic">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M9.5 2.5 6 6l1.5 1.5M9.5 2.5 12 5l-1.8 1.8M9.5 2.5l2.5 2.5" />
+                                <path d="M7.5 7.5 3 12l1 1 4.5-4.5" />
+                            </svg>
+                        </span>
+                        <h3>Developer Experience</h3>
+                        <p>Tooling and platforms that make the right thing the easy thing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== HIGHLIGHTS ===================== -->
+        <section id="highlights">
+            <div class="wrap">
+                <p class="eyebrow">Career highlights</p>
+                <h2 class="section-title">Selected work.</h2>
+                <div class="highlights">
+                    <div class="hl reveal">
+                        <div class="top">
+                            <h3>Cloud Cost Optimization</h3><span class="org">Cendyn</span>
+                        </div>
+                        <p>Reduced public cloud expenditure by <strong>$1.3M annually</strong> through resource
+                            rightsizing, decommissioning stale resources, CSP and third-party recommendations,
+                            application re-architecture, and realistic data lifecycle policies.</p>
+                    </div>
+                    <div class="hl reveal">
+                        <div class="top">
+                            <h3>Cloud Migration Strategy</h3><span class="org">Cendyn</span>
+                        </div>
+                        <p>Built and began executing a 5-year consolidation from <strong>seven cloud providers to
+                                two</strong> (AWS &amp; Azure), migrating core AWS infrastructure to Terraform for IaC —
+                            targeting a net 5% cost reduction and far more manageable infrastructure.</p>
+                    </div>
+                    <div class="hl reveal">
+                        <div class="top">
+                            <h3>Increased Global Product Uptime</h3><span class="org">Cendyn</span>
+                        </div>
+                        <p>With a strong focus on reliability, observability, and automation, increased product uptime
+                            by <strong>3% annually</strong> — roughly <strong>12 additional days</strong> of
+                            availability each year.</p>
+                    </div>
+                    <div class="hl reveal">
+                        <div class="top">
+                            <h3>Team Process Improvement</h3><span class="org">Ally Financial</span>
+                        </div>
+                        <p>Increased team velocity by <strong>27%</strong> by spearheading Agile-inspired processes in
+                            the SRE organization, lifting team morale and execution on strategic goals.</p>
+                    </div>
+                    <div class="hl reveal">
+                        <div class="top">
+                            <h3>Incident Duration Reduction</h3><span class="org">Ally Financial</span>
+                        </div>
+                        <p>Reduced incident duration by <strong>2% month-over-month</strong> through better application
+                            observability, production readiness, and post-incident Root Cause Analysis.</p>
+                    </div>
+                    <div class="hl reveal">
+                        <div class="top">
+                            <h3>CI/CD Rearchitecture</h3><span class="org">ID.me</span>
+                        </div>
+                        <p>Cut build and deploy times by <strong>30%</strong> and removed manual steps by designing and
+                            deploying a net-new CI/CD system focused on containerization, pipeline reusability, and
+                            end-to-end automated deploy and rollback.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== FEATURED WRITING ===================== -->
+        <section id="writing">
+            <div class="wrap">
+                <p class="eyebrow">Featured writing</p>
+                <div class="section-head">
+                    <h2 class="section-title">From the blog.</h2>
+                    <a class="more" href="https://peterfraedrich.medium.com" target="_blank" rel="noopener">See all on
+                        Medium →</a>
+                </div>
+                <div class="writing-grid">
+                    <a class="post reveal" href="https://peterfraedrich.medium.com/building-places-people-want-to-work-47b425f9ce1f?sharedUserId=peterfraedrich" target="_blank" rel="noopener">
+                        <img class="post-thumb" src="./img/post-building.jpg" alt="" loading="lazy" width="800" height="800">
+                        <div class="post-body">
+                            <span class="k">Medium · Leadership</span>
+                            <h3>Building Places People Want to Work</h3>
+                            <p>The compensation, culture, and growth investments that make top talent stay.</p>
+                            <span class="read">Read
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M3 8h9M8.5 4l4 4-4 4" />
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                    <a class="post reveal" href="https://peterfraedrich.medium.com/culture-doesnt-matter-bd8d538a87cb?sk=ee13f080da862a7a1ac739ea431d1f70" target="_blank" rel="noopener">
+                        <img class="post-thumb" src="./img/post-culture.jpg" alt="" loading="lazy" width="800" height="800">
+                        <div class="post-body">
+                            <span class="k">Medium · Culture</span>
+                            <h3>Company Culture Is What You Live, Not What You Say</h3>
+                            <p>Real culture shows up in leadership's actions, not mission statements.</p>
+                            <span class="read">Read
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M3 8h9M8.5 4l4 4-4 4" />
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                    <a class="post reveal" href="https://peterfraedrich.medium.com/standups-are-stupid-do-this-instead-387bc0afb199?sk=365af98219128bf39228945519e1a53a" target="_blank" rel="noopener">
+                        <img class="post-thumb" src="./img/post-standups.jpg" alt="" loading="lazy" width="800" height="800">
+                        <div class="post-body">
+                            <span class="k">Medium · Management</span>
+                            <h3>A People-Driven Approach to Standups</h3>
+                            <p>Why the daily standup wastes time — and what to do instead.</p>
+                            <span class="read">Read
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M3 8h9M8.5 4l4 4-4 4" />
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                    <a class="post reveal" href="https://peterfraedrich.medium.com/from-broken-to-thankful-cadd9385b7c0?sk=a38c90cdf486224a50d46f9e9473be8f" target="_blank" rel="noopener">
+                        <img class="post-thumb" src="./img/post-broken.jpg" alt="" loading="lazy" width="800" height="800">
+                        <div class="post-body">
+                            <span class="k">Medium · Leadership</span>
+                            <h3>From Broken to Thankful</h3>
+                            <p>Reflections on moving from hands-on technical work into people leadership.</p>
+                            <span class="read">Read
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M3 8h9M8.5 4l4 4-4 4" />
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                    <a class="post reveal" href="https://peterfraedrich.medium.com/on-starting-over-b7f9c5e5f861?sk=29f074b47c409b86512e635fe4b24870" target="_blank" rel="noopener">
+                        <img class="post-thumb" src="./img/post-starting.jpg" alt="" loading="lazy" width="800" height="800">
+                        <div class="post-body">
+                            <span class="k">Medium · Reflection</span>
+                            <h3>On Starting Over</h3>
+                            <p>Rejecting the cult of constant progress in favor of starting fresh.</p>
+                            <span class="read">Read
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M3 8h9M8.5 4l4 4-4 4" />
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                    <a class="post reveal" href="https://peterfraedrich.medium.com/confronting-your-mortality-f7ef8465e9cb?sharedUserId=peterfraedrich" target="_blank" rel="noopener">
+                        <img class="post-thumb" src="./img/post-mortality.jpg" alt="" loading="lazy" width="800" height="800">
+                        <div class="post-body">
+                            <span class="k">Medium · Personal</span>
+                            <h3>Confronting Your Mortality</h3>
+                            <p>A sudden diagnosis, and what facing mortality teaches about what matters.</p>
+                            <span class="read">Read
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M3 8h9M8.5 4l4 4-4 4" />
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== SKILLS & CERTS ===================== -->
+        <section id="certifications" class="skills">
+            <div class="wrap">
+                <p class="eyebrow">Skills &amp; certifications</p>
+                <h2 class="section-title">Credentials and toolkit.</h2>
+                <div class="skills-grid">
+                    <div>
+                        <h3 class="col-h">Certifications</h3>
+                        <div class="cert">
+                            <span class="name">
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                                    <path d="M4 9.5A3 3 0 0 1 4.5 3.6 4 4 0 0 1 12 4a2.8 2.8 0 0 1 0 5.5Z" />
+                                    <path d="M6 8.5 7.3 10 10.5 6.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                Certified Cloud Practitioner</span>
+                            <span class="by">AWS</span>
+                        </div>
+                        <div class="cert">
+                            <span class="name">
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect x="1.5" y="2.5" width="13" height="11" rx="1.5" />
+                                    <path d="M4 6l2 2-2 2M8 10h4" />
+                                </svg>
+                                DevOps Professional</span>
+                            <span class="by">PagerDuty</span>
+                        </div>
+                        <div class="cert">
+                            <span class="name">
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                                    <rect x="4" y="4" width="8" height="8" rx="1" />
+                                    <path d="M6.5 1.5v2M9.5 1.5v2M6.5 12.5v2M9.5 12.5v2M1.5 6.5h2M1.5 9.5h2M12.5 6.5h2M12.5 9.5h2" stroke-linecap="round" />
+                                </svg>
+                                IT Leadership Professional</span>
+                            <span class="by">ServiceNow</span>
+                        </div>
+                        <div class="cert">
+                            <span class="name">
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                                    <rect x="1.5" y="2.5" width="13" height="11" rx="1.5" />
+                                    <path d="M5 2.5v11M9.5 5.5v4" stroke-linecap="round" />
+                                </svg>
+                                Agile Project Management Professional</span>
+                            <span class="by">Atlassian</span>
+                        </div>
+                        <div class="cert">
+                            <span class="name">
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M8 1.5l1.6 3.9 4.4.3-3.4 2.8 1.1 4.2L8 10.6 4.3 12.9l1.1-4.2L2 5.7l4.4-.3z" />
+                                </svg>
+                                AI for Organizational Leaders</span>
+                            <span class="by">Microsoft</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="col-h">Technical skills</h3>
+                        <div class="skill-row"><b>Languages</b> · <span class="vals">Go, Python, JavaScript, Shell</span></div>
+                        <div class="skill-row"><b>Containers</b> · <span class="vals">Docker, Kubernetes, Nomad</span></div>
+                        <div class="skill-row"><b>Automation &amp; IaC</b> · <span class="vals">Terraform, Ansible, CloudFormation, CDK</span></div>
+                        <div class="skill-row"><b>Databases</b> · <span class="vals">PostgreSQL, MySQL, Redis, DynamoDB, ClickHouse</span></div>
+                        <div class="skill-row"><b>Cloud Providers</b> · <span class="vals">AWS, GCP, Azure, DigitalOcean, Linode</span></div>
+                        <div class="skill-row"><b>AI</b> · <span class="vals">Agentic Workflows, Skill Authoring, Governance & Oversight</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== WORK WITH ME ===================== -->
+        <section id="contact">
+            <div class="wrap">
+                <p class="eyebrow">Work with me</p>
+                <h2 class="section-title">Let's talk.</h2>
+                <div class="work-grid">
+                    <div class="work-card feature reveal">
+                        <span class="ic">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                                <rect x="1.5" y="4.5" width="13" height="9" rx="1.5" />
+                                <path d="M5.5 4.5V3A1.5 1.5 0 0 1 7 1.5h2A1.5 1.5 0 0 1 10.5 3v1.5" />
+                            </svg>
+                        </span>
+                        <h3>Full-Time Roles</h3>
+                        <p>Seeking technical leadership positions at the Director+ level (ideally VP or C-level).</p>
+                        <ul>
+                            <li>CTO / CIO</li>
+                            <li>VP of Engineering / Platform</li>
+                            <li>Director of Engineering</li>
+                        </ul>
+                        <a class="btn btn-primary" href="mailto:peterfraedrich+fte@gmail.com">Email me
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M3 8h9M8.5 4l4 4-4 4" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="work-card reveal">
+                        <span class="ic">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                                <path d="M1.5 3.5A1.5 1.5 0 0 1 3 2h10a1.5 1.5 0 0 1 1.5 1.5v6A1.5 1.5 0 0 1 13 11H6l-3 2.5V11H3a1.5 1.5 0 0 1-1.5-1.5z" />
+                            </svg>
+                        </span>
+                        <h3>Thought Leadership</h3>
+                        <p>Not sure what to do next or how to improve your organization? I can help.</p>
+                        <ul>
+                            <li>Zoom consultations</li>
+                            <li>Short-term engagements</li>
+                            <li>Technical advice &amp; discussion</li>
+                        </ul>
+                        <a class="btn btn-ghost" href="mailto:peterfraedrich+thought@gmail.com">Email me
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M3 8h9M8.5 4l4 4-4 4" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="work-card reveal">
+                        <span class="ic">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                                <rect x="6" y="1.5" width="4" height="8" rx="2" />
+                                <path d="M4 7.5a4 4 0 0 0 8 0M8 11.5v3M6 14.5h4" stroke-linecap="round" />
+                            </svg>
+                        </span>
+                        <h3>Public Speaking</h3>
+                        <p>Book me for your next all-hands, team offsite, conference, or special event.</p>
+                        <ul>
+                            <li>People-first leadership</li>
+                            <li>Distributed management</li>
+                            <li>…or a topic of your choosing</li>
+                        </ul>
+                        <a class="btn btn-ghost" href="mailto:peterfraedrich+speaking@gmail.com">Email me
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M3 8h9M8.5 4l4 4-4 4" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+        <div class="wrap">
+            <div class="foot-links">
+                <a class="icon-btn" href="mailto:peterfraedrich+website@gmail.com" aria-label="Email" title="Email">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+                        <rect x="1.5" y="3" width="13" height="10" rx="1.5" />
+                        <path d="m2 4 6 4.5L14 4" />
+                    </svg>
+                </a>
+                <a class="icon-btn" href="https://github.com/peterfraedrich" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+                    </svg>
+                </a>
+                <a class="icon-btn" href="https://www.linkedin.com/in/peterfraedrich" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                        <path d="M0 1.15C0 .51.53 0 1.19 0h13.62C15.47 0 16 .51 16 1.15v13.7c0 .64-.53 1.15-1.19 1.15H1.19C.53 16 0 15.49 0 14.85V1.15Zm4.94 12.22V6.17H2.54v7.2h2.4Zm-1.2-8.18c.84 0 1.36-.55 1.36-1.24-.02-.71-.52-1.24-1.34-1.24-.82 0-1.36.53-1.36 1.24 0 .69.52 1.24 1.32 1.24h.02Zm4.13 8.18V9.35c0-.22.02-.43.08-.58.17-.43.56-.87 1.21-.87.85 0 1.19.65 1.19 1.6v3.87h2.4V9.22c0-2.22-1.18-3.25-2.76-3.25-1.29 0-1.86.71-2.18 1.2h.02v-1h-2.4c.03.68 0 7.2 0 7.2h2.4Z" />
+                    </svg>
+                </a>
+            </div>
+            <p class="foot-note">This is only a snapshot of my experience, skills, and professional life. Want to know
+                more? <a href="mailto:peterfraedrich+website@gmail.com">Get in touch</a> — thanks for reading.</p>
+            <img class="logo" src="./img/pete-logo-black.png" width="64" alt="Pete Fraedrich logo">
+        </div>
+    </footer>
+
     <script>
-        console.log("oooooooo, secret message! :)")
+        (function () {
+            "use strict";
+
+            // ---- Theme: respect saved choice, then system preference ----
+            var root = document.documentElement;
+            var sun = document.querySelector(".i-sun");
+            var moon = document.querySelector(".i-moon");
+
+            function apply(theme) {
+                root.setAttribute("data-theme", theme);
+                var dark = theme === "dark";
+                sun.style.display = dark ? "none" : "";
+                moon.style.display = dark ? "" : "none";
+            }
+
+            var saved = null;
+            try { saved = localStorage.getItem("theme"); } catch (e) { }
+            var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            apply(saved || (prefersDark ? "dark" : "light"));
+
+            document.getElementById("theme-toggle").addEventListener("click", function () {
+                var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+                apply(next);
+                try { localStorage.setItem("theme", next); } catch (e) { }
+            });
+
+            // ---- Nav shadow on scroll ----
+            var nav = document.getElementById("nav");
+            function onScroll() {
+                nav.classList.toggle("scrolled", window.scrollY > 8);
+            }
+            onScroll();
+            window.addEventListener("scroll", onScroll, { passive: true });
+
+            // ---- Scroll reveal ----
+            var reveals = document.querySelectorAll(".reveal");
+            if ("IntersectionObserver" in window) {
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (en) {
+                        if (en.isIntersecting) {
+                            en.target.classList.add("in");
+                            io.unobserve(en.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+                reveals.forEach(function (el) { io.observe(el); });
+            } else {
+                reveals.forEach(function (el) { el.classList.add("in"); });
+            }
+
+            // ---- Easter egg 1: click "SPACE" -> launch a rocket ----
+            function launchRocket() {
+                var r = document.createElement("div");
+                r.className = "egg-rocket";
+                r.style.left = (18 + Math.random() * 64) + "vw";
+                var inner = document.createElement("span");
+                inner.textContent = "🚀"; // 🚀
+                r.appendChild(inner);
+                document.body.appendChild(r);
+                inner.addEventListener("animationend", function () { r.remove(); });
+                setTimeout(function () { r.remove(); }, 2500); // safety net
+            }
+            var spaceEgg = document.querySelector(".egg-space");
+            if (spaceEgg) {
+                spaceEgg.addEventListener("click", launchRocket);
+                spaceEgg.addEventListener("keydown", function (e) {
+                    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); launchRocket(); }
+                });
+            }
+
+            // ---- Easter egg 2: Konami code (Enter to finish) -> dinosaurs ----
+            var KONAMI = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft",
+                "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a", "Enter"];
+            var progress = 0;
+            var dinosRunning = false;
+
+            function stampede() {
+                if (dinosRunning) return;
+                dinosRunning = true;
+                var FAST = 4.2;   // the Jeep and the lead dino share this speed -> constant gap
+                var last = 0;
+
+                function runner(cls, emoji, delay, size, bottom, dur) {
+                    var d = document.createElement("div");
+                    d.className = cls;
+                    d.style.fontSize = size + "px";
+                    d.style.bottom = bottom + "px";
+                    d.style.animationDuration = dur + "s";
+                    d.style.animationDelay = delay + "s";
+                    var s = document.createElement("span");
+                    s.textContent = emoji;
+                    d.appendChild(s);
+                    document.body.appendChild(d);
+                    d.addEventListener("animationend", function () { d.remove(); });
+                    last = Math.max(last, delay + dur);
+                }
+
+                var herd = ["🦖", "🦕"]; // 🦖 🦕
+                // The Jeep flees out front.
+                runner("egg-jeep", "🚙", 0, 62, 12, FAST); // 🚙
+                // The lead dino matches the Jeep's speed, holding the gap.
+                runner("egg-dino", "🦖", 0.5, 54, 12, FAST);
+                // The rest give chase at varied speeds, sizes, and heights, so the
+                // pack spreads out and overlaps like the original stampede.
+                for (var i = 1; i <= 6; i++) {
+                    var dur = FAST + 0.4 + Math.random() * 2.0;          // slower than the leaders
+                    var delay = i * (0.22 + Math.random() * 0.22);
+                    var size = 34 + Math.round(Math.random() * 40);
+                    var bottom = 6 + Math.round(Math.random() * 20);
+                    runner("egg-dino", herd[i % 2], delay, size, bottom, dur);
+                }
+                setTimeout(function () { dinosRunning = false; }, (last + 0.6) * 1000);
+            }
+
+            window.addEventListener("keydown", function (e) {
+                // ignore typing in inputs (there are none, but be safe)
+                var k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+                var want = KONAMI[progress];
+                if (k === (want.length === 1 ? want.toLowerCase() : want)) {
+                    progress++;
+                    if (progress === KONAMI.length) { progress = 0; stampede(); }
+                } else {
+                    // allow a fresh start if the mistaken key is the first key
+                    progress = (k === KONAMI[0]) ? 1 : 0;
+                }
+            });
+        })();
+
+        console.log("%coooooooo, secret message! :)", "font-size:14px");
+        console.log("%cPsst — try clicking SPACE in the About section, or the Konami code (Enter to finish).", "color:#4fb8e8");
     </script>
 </body>
+
+</html>
