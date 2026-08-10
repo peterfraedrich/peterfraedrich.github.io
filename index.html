@@ -608,6 +608,65 @@
             color: var(--muted);
         }
 
+        /* ---------- How I lead ---------- */
+        .leadership {
+            background: var(--accent-soft);
+        }
+
+        .tenets {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 36px;
+        }
+
+        @media (max-width: 780px) {
+            .tenets {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tenet {
+            border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border));
+            border-radius: var(--radius);
+            background: var(--bg);
+            padding: 24px;
+            transition: border-color .2s ease, transform .2s ease;
+        }
+
+        .tenet:hover {
+            border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+            transform: translateY(-2px);
+        }
+
+        /* Mono index instead of an icon — six tenets read as a manifesto,
+           not as six more pictograms. */
+        .tenet .n {
+            display: block;
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: .08em;
+            color: var(--accent-ink);
+            margin-bottom: 10px;
+        }
+
+        .tenet h3 {
+            font-size: 1.08rem;
+            font-weight: 700;
+            letter-spacing: -.01em;
+        }
+
+        .tenet p {
+            margin: 9px 0 0;
+            font-size: 14.5px;
+            color: var(--ink-soft);
+        }
+
+        .tenet strong {
+            color: var(--accent-ink);
+            font-weight: 700;
+        }
+
         /* ---------- Highlights ---------- */
         .highlights {
             display: grid;
@@ -668,6 +727,22 @@
         }
 
         /* ---------- Writing ---------- */
+        /* Same hairline as the About section's .disc divider, drawn at the
+           section boundary. Width tracks .wrap's content box so it lines up
+           with the text above and below it. */
+        .divided {
+            padding-top: 0;
+        }
+
+        .divided::before {
+            content: "";
+            display: block;
+            width: calc(100% - 44px);
+            max-width: calc(var(--maxw) - 44px);
+            margin: 0 auto clamp(48px, 8vw, 88px);
+            border-top: 1px solid var(--border);
+        }
+
         .section-head {
             display: flex;
             align-items: flex-end;
@@ -1210,7 +1285,7 @@
                         <div class="lbl">Years from entry-level to Vice President</div>
                     </div>
                     <div class="stat reveal">
-                        <div class="num pos">$2.1M</div>
+                        <div class="num pos">$4M+</div>
                         <div class="lbl">Annual cloud cost savings realized</div>
                     </div>
                     <div class="stat reveal">
@@ -1239,12 +1314,10 @@
                             durable systems.</h2>
                         <p>I bring experience across multiple verticals — SaaS, fintech, healthcare, and hospitality —
                             but I'm always open to jumping into something new. I'd love the opportunity to dive into
-                            HPC, EduTech, and anything relating to <span class="egg-space" role="button" tabindex="0" aria-label="Easter egg: launch a rocket">SPACE</span>.</p>
+                            HPC, developer tooling, B2B SaaS, and anything relating to <span class="egg-space" role="button" tabindex="0" aria-label="Easter egg: launch a rocket">SPACE</span>.</p>
                         <p>Outside of work I'm an avid writer, sharing my thoughts on technology on my
                             <a href="https://peterfraedrich.medium.com" target="_blank" rel="noopener">Medium blog</a>.
-                            I write and record music with
-                            <a href="https://famousforacentury.com" target="_blank" rel="noopener">Famous For A
-                                Century</a>, and I occasionally build guitars.
+                            I mix, master, write, and record music, and I occasionally build guitars.
                         </p>
                         <p>I reside in Herndon, VA with my amazing wife and three wacky kids.</p>
                     </div>
@@ -1263,7 +1336,7 @@
                         </div>
                         <div class="g-row">
                             <span class="g-k">Ideal Verticals</span>
-                            <span class="g-v">B2B SaaS, HPC, Space, EduTech</span>
+                            <span class="g-v">Space, HPC, Developer Tooling, B2B SaaS</span>
                         </div>
                     </div>
                 </div>
@@ -1336,12 +1409,87 @@
             </div>
         </section>
 
+        <!-- ===================== HOW I LEAD ===================== -->
+        <section id="leadership" class="leadership">
+            <div class="wrap">
+                <p class="eyebrow">Leadership philosophy</p>
+                <h2 class="section-title">How I lead.</h2>
+                <div class="tenets">
+                    <div class="tenet reveal">
+                        <span class="n">01</span>
+                        <h3>Ownership Without Permission</h3>
+                        <p><strong>State your intent and ask for input</strong> — don't ask me for permission to do
+                            your job. I'll give you the context to make good calls and the room to make them. Failure
+                            that comes from a well-reasoned decision is a learning opportunity; failure that comes from
+                            waiting to be told what to do is a management problem I need to fix.</p>
+                    </div>
+                    <div class="tenet reveal">
+                        <span class="n">02</span>
+                        <h3>Direct, Private, Timely</h3>
+                        <p>I'll never share publicly what we haven't discussed privately. When something needs
+                            correcting, it happens in a one-on-one, close to the event, with a plan. <strong>Public
+                                praise, private correction</strong> — always, without exception.</p>
+                    </div>
+                    <div class="tenet reveal">
+                        <span class="n">03</span>
+                        <h3>Coach, Don't Criticize</h3>
+                        <p>Correction should come with <strong>a path forward, not just a verdict</strong>. If I'm
+                            pointing out something you did wrong, I'm also telling you what “right” looks like, why it
+                            matters, and what I'll do to help you get there. If I can't do that, I haven't thought about
+                            it hard enough yet.</p>
+                    </div>
+                    <div class="tenet reveal">
+                        <span class="n">04</span>
+                        <h3>Trust Comes Standard</h3>
+                        <p>You don't need permission to take your kid to the doctor, leave early for a school pickup, or
+                            block off time to think. If you're reachable and your team knows where you are, I trust you
+                            to manage your own time. After-hours messages wait until tomorrow unless they're marked
+                            otherwise. <strong>Time isn't the metric; output is.</strong></p>
+                    </div>
+                    <div class="tenet reveal">
+                        <span class="n">05</span>
+                        <h3>Invest 20%</h3>
+                        <p>I expect you to spend roughly a fifth of your time on things that make you better — side
+                            projects, self-directed learning, reading, writing, or exploring adjacent domains.
+                            <strong>This isn't a perk.</strong> It's how you stay sharp, how the team stays ahead, and
+                            how I ensure the people who work with me keep growing whether they stay on my team or
+                            eventually move on.
+                        </p>
+                    </div>
+                    <div class="tenet reveal">
+                        <span class="n">06</span>
+                        <h3>The Buck Stops With Me</h3>
+                        <p><strong>I own my team's failures</strong> the same way I celebrate their successes. If
+                            leadership needs to know something went wrong, I'm the one who tells them, and I'm the one
+                            whose name is on the fix. Your job is to do the work well; my job is to defend the
+                            conditions that let you do it.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ===================== HIGHLIGHTS ===================== -->
         <section id="highlights">
             <div class="wrap">
                 <p class="eyebrow">Career highlights</p>
                 <h2 class="section-title">Selected work.</h2>
                 <div class="highlights">
+                    <div class="hl reveal">
+                        <div class="top">
+                            <h3>Agentic Vulnerability Monitoring</h3><span class="org">Porttech</span>
+                        </div>
+                        <p>Developed <strong>AI agents in Copilot Studio</strong> to ingest, triage, track, and
+                            disseminate real-time CVE feeds from the National Vulnerability Database. Agentic AI
+                            filtered, gauged CVE impact, and compiled multiple similar CVEs into comprehensive
+                            reporting packages.</p>
+                    </div>
+                    <div class="hl reveal">
+                        <div class="top">
+                            <h3>AI Skill Development</h3><span class="org">Thrive Market</span>
+                        </div>
+                        <p>Developed <strong>branching and delegation Claude skills</strong> as part of a larger
+                            SRE-focused incident triage pipeline.</p>
+                    </div>
                     <div class="hl reveal">
                         <div class="top">
                             <h3>Cloud Cost Optimization</h3><span class="org">Cendyn</span>
@@ -1393,7 +1541,7 @@
         </section>
 
         <!-- ===================== FEATURED WRITING ===================== -->
-        <section id="writing">
+        <section id="writing" class="divided">
             <div class="wrap">
                 <p class="eyebrow">Featured writing</p>
                 <div class="section-head">
@@ -1402,6 +1550,19 @@
                         Medium →</a>
                 </div>
                 <div class="writing-grid">
+                    <a class="post reveal" href="https://peterfraedrich.medium.com/death-by-a-thousand-alarms-306d0d6dfda8?sk=1390717fdadc6b538116e7f7c5125254" target="_blank" rel="noopener">
+                        <img class="post-thumb" src="./img/post-alarms.jpg" alt="" loading="lazy" width="800" height="800">
+                        <div class="post-body">
+                            <span class="k">Medium · Reliability</span>
+                            <h3>Death By A Thousand Alarms</h3>
+                            <p>Taming alert fatigue, and the three levels of observability maturity.</p>
+                            <span class="read">Read
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M3 8h9M8.5 4l4 4-4 4" />
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
                     <a class="post reveal" href="https://peterfraedrich.medium.com/building-places-people-want-to-work-47b425f9ce1f?sharedUserId=peterfraedrich" target="_blank" rel="noopener">
                         <img class="post-thumb" src="./img/post-building.jpg" alt="" loading="lazy" width="800" height="800">
                         <div class="post-body">
@@ -1421,19 +1582,6 @@
                             <span class="k">Medium · Culture</span>
                             <h3>Company Culture Is What You Live, Not What You Say</h3>
                             <p>Real culture shows up in leadership's actions, not mission statements.</p>
-                            <span class="read">Read
-                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M3 8h9M8.5 4l4 4-4 4" />
-                                </svg>
-                            </span>
-                        </div>
-                    </a>
-                    <a class="post reveal" href="https://peterfraedrich.medium.com/standups-are-stupid-do-this-instead-387bc0afb199?sk=365af98219128bf39228945519e1a53a" target="_blank" rel="noopener">
-                        <img class="post-thumb" src="./img/post-standups.jpg" alt="" loading="lazy" width="800" height="800">
-                        <div class="post-body">
-                            <span class="k">Medium · Management</span>
-                            <h3>A People-Driven Approach to Standups</h3>
-                            <p>Why the daily standup wastes time — and what to do instead.</p>
                             <span class="read">Read
                                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <path d="M3 8h9M8.5 4l4 4-4 4" />
